@@ -5,65 +5,77 @@
         <div class="row">
           <div class="col-xl-12">
             <div class="section-tittle section-tittle2 mb-35">
-              <h2 class="mb-10">Videos</h2>
-              <p>TOP OF THE WEEK PLAYLIST</p>
+              <h2 class="mb-10">Video</h2>
+              <p>Yang terbaru dari kami</p>
               <p class="video-cap">
-                Calling time on<br> irresponsible junk<br> food advertising
+                @foreach( $captionVideo as $cap )
+                  {{ $cap -> caption }}
+                @endforeach
               </p>
-              <small>Business / 5.0m</small>
+              <small>Ahsana TV & Kang Arief Channel</small>
             </div>
           </div>
           <!--Left Single -->
           <div class="col-lg-6 col-md-6">
             <div class="single-baner-nw4 mb-30">
-              <div class="banner-img-cap4">
-                <div class="banner-img4">
-                  <img src="{{ asset('img/img/gallery/video_img1.png') }}" alt="">
-                  <!--video iocn -->
-                  <div class="video-icon video-icon2">
-                    <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0" data-animation="bounceIn" data-delay=".4s">
-                      <i class="fas fa-play"></i>
-                    </a>
+              @foreach( $video2 as $vid )
+                <div class="banner-img-cap4">
+                  <div class="banner-img4">
+                    <div class="banner-img4-img">
+                      <img src="{{ asset('img/video/'.$vid -> sampul) }}" alt="">
+                    </div>
+                    <!--video iocn -->
+                    <div class="video-icon video-icon2">
+                      <a class="popup-video btn-icon" href="{{ $vid -> linkVideo }}" data-animation="bounceIn" data-delay=".4s">
+                        <i class="fas fa-play"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="banner-cap4">
+                    <h3>
+                      <a href="{{ $vid -> linkVideo }}" target="_blank">{{ $vid -> caption }}</a>
+                    </h3>
                   </div>
                 </div>
-                <div class="banner-cap4">
-                  <h3>
-                    <a href="post_details.html">Editors with strong points  of view</a>
-                  </h3>
-                </div>
-              </div>
+              @endforeach
             </div>
           </div>
           <div class="col-lg-6 col-md-6">
             <div class="single-baner-nw4 mb-30">
-              <div class="banner-img-cap4">
-                <div class="banner-img4">
-                  <img src="{{ asset('img/img/gallery/video_img2.png') }}" alt="">
-                  <!--video iocn -->
-                  <div class="video-icon video-icon2">
-                    <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0" data-animation="bounceIn" data-delay=".4s">
-                      <i class="fas fa-play"></i>
-                    </a>
+              @foreach( $video1 as $vid )
+                <div class="banner-img-cap4">
+                  <div class="banner-img4">
+                    <div class="banner-img4-img">
+                      <img src="{{ asset('img/video/'.$vid -> sampul) }}" alt="">
+                    </div>
+                    <!--video iocn -->
+                    <div class="video-icon video-icon2">
+                      <a class="popup-video btn-icon" href="{{ $vid -> linkVideo }}" data-animation="bounceIn" data-delay=".4s">
+                        <i class="fas fa-play"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="banner-cap4">
+                    <h3>
+                      <a href="{{ $vid -> linkVideo }}" target="_blank">{{ $vid -> caption }}</a>
+                    </h3>
                   </div>
                 </div>
-                <div class="banner-cap4">
-                  <h3>
-                    <a href="post_details.html">Dill is part of an unexpected groundswell</a>
-                  </h3>
-                </div>
-              </div>
+              @endforeach
             </div>
           </div>
         </div>
       </div>
       <div class="right-content">
-        <div class="video-img">
-          <img src="{{ asset('img/img/gallery/video_bg.png') }}" alt="">
-          <!--video iocn -->
-          <div class="video-icon video-icon2">
-            <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0" data-animation="bounceIn" data-delay=".4s"><i class="fas fa-play"></i></a>
+        @foreach( $video0 as $vid )
+          <div class="video-img">
+            <img src="{{ asset('img/video/'.$vid -> sampul) }}" alt="">
+            <!--video iocn -->
+            <div class="video-icon video-icon2">
+              <a class="popup-video btn-icon" href="{{ $vid -> linkVideo }}" data-animation="bounceIn" data-delay=".4s"><i class="fas fa-play"></i></a>
+            </div>
           </div>
-        </div>
+        @endforeach
       </div>
     </div>
   </div>

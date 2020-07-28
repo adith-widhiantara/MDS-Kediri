@@ -10,23 +10,23 @@
                 <div class="header-info-left d-flex justify-content-center">
                   <!-- Social -->
                   <div class="header-social">
-                      <a href="#"><i class="fab fa-twitter"></i></a>
-                      <a href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
-                      <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="https://www.youtube.com/channel/UCBQwTq1Ftku1yuPZ06s45cQ" target="_blank" title="Kang Arief Channel"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/PowerOfDzikir" target="_blank" title="Power Of Dzikir"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.youtube.com/channel/UCDPy20cP3WpCt42qUF7Ut9w" target="_blank" title="Ahsana TV"><i class="fab fa-youtube"></i></a>
                   </div>
                 </div>
                 <div class="header-info-mid">
                   <!-- logo -->
                   <div class="logo">
-                    <a href="index.html">
-                      <img src="{{ asset('img/img/logo/logo.png') }}" alt="">
+                    <a href="#">
+                      <img class="img-logo" src="{{ asset('img/podLogo.png') }}" alt="">
                     </a>
                   </div>
                 </div>
                 <div class="header-info-right d-flex align-items-center">
                   <ul>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Hubungi</a></li>
                   </ul>
                 </div>
               </div>
@@ -41,16 +41,10 @@
                 <div class="main-menu text-center">
                   <nav>
                     <ul>
-                      <li><a href="category.html">Lifestyle</a></li>
-                      <li><a href="category.html">Business</a></li>
-                      <li><a href="category.html">Fashion</a></li>
-                      <li><a href="category.html">Design</a></li>
-                      <li><a href="category.html">Health</a></li>
-                      <li><a href="category.html">Harmful</a></li>
-                      <li><a href="category.html">Technology</a></li>
-                      <li><a href="category.html">Travel</a></li>
-                      <li><a href="category.html">Food</a></li>
-                      <li><a href="category.html">Creative</a></li>
+                      <li><a href="#">Galeri</a></li>
+                      <li><a href="#">Berita</a></li>
+                      <li><a href="#">Testimoni</a></li>
+                      <li><a href="#">Video</a></li>
                     </ul>
                   </nav>
                 </div>
@@ -69,7 +63,7 @@
           <div class="col-xl-9 col-lg-8">
             <div class="footer-copy-right text-center">
                 <p>
-                  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                  Copyright &copy;<script>document.write(new Date().getFullYear());</script> | Dibuat oleh santri MDS Kediri
                 </p>
             </div>
           </div>

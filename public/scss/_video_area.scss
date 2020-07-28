@@ -1,5 +1,5 @@
 .video-area {
-    background: #EFF5F8;
+    background: $green50;
     padding: 80px 150px 0 150px;
     @media #{$laptop}{
         padding: 80px 50px 0 50px;
@@ -105,7 +105,7 @@
                             right: -2px;
                             top: 2px;
                         }
-                    } 
+                    }
                     // btn Animated Style
                     a.btn-icon{
                         position: relative;
@@ -123,21 +123,21 @@
                         animation: btnIconRipple 2s cubic-bezier(0.23, 1, 0.32, 1) both infinite;
                     }
                     /* Animations */
-                        @-webkit-keyframes btnIconRipple { 
+                        @-webkit-keyframes btnIconRipple {
                             0% { border-width: 4px;
                                 -webkit-transform: scale(1);
                                 transform: scale(1); }
-                            50% { 
+                            50% {
                                 border-width: 1px;
                                 -webkit-transform: scale(1.50);
-                                transform: scale(1.50); 
+                                transform: scale(1.50);
                                 }
-                            80% { 
+                            80% {
                                 border-width: 1px;
                                 -webkit-transform: scale(1.90);
-                                transform: scale(1.90); 
+                                transform: scale(1.90);
                                 }
-                            100% { 
+                            100% {
                                 opacity: 0; }
                             }
                         /* End Animated */
@@ -160,10 +160,15 @@
             overflow: hidden;
             position: relative;
             margin-bottom: 10px;
+            .banner-img4-img{
+              height: 166px;
+            }
             img{
                 width: 100%;
                 @include transform(scale (1));
                 transition: all 0.3s ease-out 0s;
+                height: 166px;
+                object-fit: cover;
             }
             // Video icon
             .video-icon{
@@ -187,12 +192,12 @@
 
                     @media #{$sm}{
                         width: 60px;
-                        height: 60px; 
+                        height: 60px;
                         line-height: 60px;
                     }
                     @media #{$xs}{
                         width: 60px;
-                        height: 60px; 
+                        height: 60px;
                         line-height: 60px;
                     }
                     i{
@@ -203,7 +208,7 @@
                         right: -2px;
                         top: 2px;
                     }
-                } 
+                }
                 // btn Animated Style
                 a.btn-icon{
                     position: relative;
@@ -221,10 +226,10 @@
             @include transition(.4s);
             @media #{$lg}{
                 padding: 22px 29px 32px 17px;
-            } 
+            }
             &.banner-cap4{
                 padding: 0;
-            }             
+            }
             p{
                 color: #707b8e;
                 text-transform: uppercase;
@@ -232,7 +237,7 @@
             }
             h3{
                 a{
-                    color:#191d34;
+                    color:$black;
                     font-size: 23px;
                     font-weight: 500;
                     line-height: 1.4;
@@ -240,7 +245,7 @@
                     text-transform: capitalize;
                     @include transition(.4s);
                     &:hover{
-                        color: $theme-color;
+                        color: $green900;
                     }
                     @media #{$lg}{
                         font-size: 18px;
@@ -275,7 +280,7 @@
 }
 .video-cap{
     font-size: 22px !important;
-    color: #140C40 !important;
+    color: $black !important;
     font-weight: 600 !important;
     line-height: 1.5 !important;
 }

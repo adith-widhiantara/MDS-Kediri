@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/template/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/template/slicknav.css') }} ">
-      <!-- <link rel="stylesheet" href="{{ asset('css/template/flaticon.css') }} "> -->
+      <link rel="stylesheet" href="{{ asset('css/template/flaticon.css') }} ">
       <link rel="stylesheet" href="{{ asset('css/template/progressbar_barfiller.css') }} ">
       <link rel="stylesheet" href="{{ asset('css/template/gijgo.css') }} ">
       <link rel="stylesheet" href="{{ asset('css/template/animate.min.css') }}">
@@ -26,6 +26,7 @@
   	<link rel="stylesheet" href="{{ asset('css/template/slick.css') }} ">
   	<link rel="stylesheet" href="{{ asset('css/template/nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    @yield('css')
     <!-- end css -->
   </head>
   <body>
@@ -90,6 +91,9 @@
       <!-- Jquery Plugins, main Jquery -->
       <script src="{{ asset('js/template/plugins.js') }}"></script>
       <script src="{{ asset('js/template/main.js') }}"></script>
+
+      <!-- Every Page -->
+      @yield('js')
     <!-- end JavaScript -->
   </body>
 </html>

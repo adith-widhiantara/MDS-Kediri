@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="news-slider-active">
+
           <div class="single-news-slider">
             <div class="news-img">
               <a href="category.html">
@@ -10,6 +11,7 @@
               </a>
             </div>
           </div>
+
           <div class="single-news-slider">
             <div class="news-img">
               <a href="category.html">
@@ -17,6 +19,7 @@
               </a>
             </div>
           </div>
+
           <div class="single-news-slider">
             <div class="news-img">
               <a href="category.html">
@@ -24,6 +27,7 @@
               </a>
             </div>
           </div>
+
           <div class="single-news-slider">
             <div class="news-img">
               <a href="category.html">
@@ -31,6 +35,7 @@
               </a>
             </div>
           </div>
+
           <div class="single-news-slider">
             <div class="news-img">
               <a href="category.html">
@@ -38,6 +43,7 @@
               </a>
             </div>
           </div>
+
           <div class="single-news-slider">
             <div class="news-img">
               <a href="category.html">
@@ -45,6 +51,7 @@
               </a>
             </div>
           </div>
+          
         </div>
       </div>
     </div>

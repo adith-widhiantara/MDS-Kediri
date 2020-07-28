@@ -1,7 +1,7 @@
 
 .latest-slider{
         border-bottom: 1px solid #eeeeee;
-        
+
     // trending top
     .trending-top{
         .trend-top-img{
@@ -16,8 +16,13 @@
                 content: "";
                 @extend %gallery2;
             }
-            img{
+            .trend-top-img-img{
+              img{
                 width: 100%;
+                height: 627px;
+                object-fit: cover;
+                object-position: center;
+              }
             }
             .trend-top-cap{
                 position: absolute;
@@ -30,7 +35,7 @@
                 span{
                     padding: 7px 14px;
                     border-radius: 5px;
-                    text-transform: uppercase;
+                    text-transform: capitalize;
                     font-weight: 700;
                     font-size: 15px;
                     line-height: 1;
@@ -99,13 +104,13 @@
                     margin-bottom: 15px;
                     display: inline-block;
                 }
-                h4{      
-                    font-size: 18px; 
+                h4{
+                    font-size: 18px;
                     @media #{$lg}{
                         font-size: 16px;
-                    }           
+                    }
                     a{
-                        
+
                         font-weight: 500;
                         line-height:1.4;
                         &:hover{
@@ -115,7 +120,7 @@
                 }
             }
         }
-    
+
     }
   }
 
@@ -127,7 +132,9 @@
             overflow: hidden;
             position: relative;
             img{
+                height: 264px;
                 width: 100%;
+                object-fit: cover;
                 @include transform(scale (1));
                 transition: all 0.3s ease-out 0s;
             }
@@ -138,17 +145,18 @@
             @include transition(.4s);
             @media #{$lg}{
                 padding: 22px 29px 32px 17px;
-            } 
+            }
             &.banner-cap3{
                 padding: 0;
-            }             
+            }
             p{
                 color: #707b8e;
-                text-transform: uppercase;
+                text-transform: capitalize;
+                margin-bottom: 0;
             }
             h3{
                 a{
-                    color:#191d34;
+                    color:$black;
                     font-size: 22px;
                     font-weight: 600;
                     line-height: 1.4;
@@ -156,7 +164,7 @@
                     text-transform: capitalize;
                     @include transition(.4s);
                     &:hover{
-                        color: $theme-color;
+                        color: $green900;
                     }
                     @media #{$lg}{
                         font-size: 20px;

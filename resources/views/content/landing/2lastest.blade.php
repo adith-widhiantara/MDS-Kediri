@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12">
         <div class="section-tittle mb-35">
-          <h2>Latest Posts</h2>
+          <h2>Berita Terbaru</h2>
         </div>
       </div>
     </div>
@@ -13,114 +13,130 @@
         <div class="latest-slider">
           <div class="slider-active">
             <!-- Single slider -->
-            <div class="single-slider">
-              <div class="trending-top mb-30">
-                <div class="trend-top-img text-center">
-                  <img src="{{ asset('img/img/gallery/latest-post.png') }}" alt="">
-                  <div class="trend-top-cap">
-                      <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">Design</span>
-                      <h2>
-                        <a href="post_details.html" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">Calling time on irresponsible junk food advertising to children</a>
-                      </h2>
+            @foreach( $berita0 as $ber )
+              <div class="single-slider">
+                <div class="trending-top mb-30">
+                  <div class="trend-top-img text-center">
+                    <div class="trend-top-img-img">
+                      <img src="{{ asset('img/news/'.$ber -> sampul) }}" alt="">
+                    </div>
+                    <div class="trend-top-cap">
+                        <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">{{ $ber -> user_nama }}</span>
+                        <h2>
+                          <a href="#" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">{{ $ber -> judul }}</a>
+                        </h2>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            @endforeach
             <!-- Single slider -->
-            <div class="single-slider">
-              <div class="trending-top mb-30">
-                <div class="trend-top-img text-center">
-                  <img src="{{ asset('img/img/gallery/latest-post.png') }}" alt="">
-                  <div class="trend-top-cap">
-                    <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">Design</span>
-                    <h2>
-                      <a href="post_details.html"  data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">Calling time on irresponsible junk food advertising to children</a>
-                    </h2>
+            @foreach( $berita0 as $ber )
+              <div class="single-slider">
+                <div class="trending-top mb-30">
+                  <div class="trend-top-img text-center">
+                    <div class="trend-top-img-img">
+                      <img src="{{ asset('img/news/'.$ber -> sampul) }}" alt="">
+                    </div>
+                    <div class="trend-top-cap">
+                      <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">{{ $ber -> user_nama }}</span>
+                      <h2>
+                        <a href="#"  data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">{{ $ber -> judul }}</a>
+                      </h2>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            @endforeach
           </div>
         </div>
       </div>
       <div class="col-lg-6">
         <!-- smoll items -->
         <div class="row">
-          <div class="col-xl-6 col-lg-6 col-md-6">
-            <div class="single-baner-nw2 mb-30 ">
-              <div class="banner-img-cap2">
-                <div class="banner-img">
-                  <img src="{{ asset('img/img/gallery/latest-post2.png') }}" alt="">
+          @foreach( $berita1 as $ber )
+            <div class="col-xl-6 col-lg-6 col-md-6">
+              <div class="single-baner-nw2 mb-30 ">
+                <div class="banner-img-cap2">
+                  <div class="banner-img">
+                    <img src="{{ asset('img/news/'.$ber -> sampul) }}" alt="">
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-xl-6 col-lg-6 col-md-6">
-            <div class="single-baner-nw2 mb-30">
-              <div class="banner-img-cap2">
-                <div class="banner-cap2 banner-cap3">
-                  <p>Trending</p>
-                  <h3>
-                    <a href="post_details.html">The pomelo case: scope of plant variety rights in China</a>
-                  </h3>
-                  <p class="normal">Passion for their subjects from the subtleties of regional Thai home cooking to the intersection of food and queer culture.</p>
+            <div class="col-xl-6 col-lg-6 col-md-6">
+              <div class="single-baner-nw2 mb-30">
+                <div class="banner-img-cap2">
+                  <div class="banner-cap2 banner-cap3">
+                    <p>{{ $ber -> user_nama }}</p>
+                    <h3>
+                      <a href="#">{{ $ber -> judul }}</a>
+                    </h3>
+                    <p class="normal" id="caption1">{{ $ber -> caption }}</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-xl-6 col-lg-6 col-md-6">
-            <div class="single-baner-nw2 mb-30">
-              <div class="banner-img-cap2">
-                <div class="banner-cap2 banner-cap3">
-                  <p>Technology</p>
-                  <h3>
-                    <a href="post_details.html">Valuable lessons to take away from COVID-19</a>
-                  </h3>
-                  <p class="normal">Passion for their subjects from the subtleties of regional Thai home cooking to the intersection of food and queer culture.</p>
+          @endforeach
+          @foreach( $berita2 as $ber )
+            <div class="col-xl-6 col-lg-6 col-md-6">
+              <div class="single-baner-nw2 mb-30">
+                <div class="banner-img-cap2">
+                  <div class="banner-cap2 banner-cap3">
+                    <p>{{ $ber -> user_nama }}</p>
+                    <h3>
+                      <a href="#">{{ $ber -> judul }}</a>
+                    </h3>
+                    <p class="normal" id="caption2">{{ $ber -> caption }}</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-xl-6 col-lg-6 col-md-6">
-            <div class="single-baner-nw2 mb-30 ">
-              <div class="banner-img-cap2">
-                <div class="banner-img">
-                  <img src="{{ asset('img/img/gallery/latest-post02.png') }}" alt="">
+            <div class="col-xl-6 col-lg-6 col-md-6">
+              <div class="single-baner-nw2 mb-30 ">
+                <div class="banner-img-cap2">
+                  <div class="banner-img">
+                    <img src="{{ asset('img/news/'.$ber -> sampul) }}" alt="">
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          @endforeach
         </div>
       </div>
       <div class="col-lg-6">
-        <div class="single-baner-nw2 mb-30 text-center">
-          <div class="banner-img-cap2">
-            <div class="banner-img">
-              <img src="{{ asset('img/img/gallery/latest-post3.png') }}" alt="">
-            </div>
-            <div class="banner-cap2">
-              <p>Technology</p>
-              <h3>
-                <a href="post_details.html">Calling time on irresponsible junk food advertising to children</a>
-              </h3>
+        @foreach( $berita3 as $ber )
+          <div class="single-baner-nw2 mb-30 text-center">
+            <div class="banner-img-cap2">
+              <div class="banner-img">
+                <img src="{{ asset('img/news/'.$ber -> sampul) }}" alt="">
+              </div>
+              <div class="banner-cap2">
+                <p>{{ $ber -> user_nama }}</p>
+                <h3>
+                  <a href="#">{{ $ber -> judul }}</a>
+                </h3>
+              </div>
             </div>
           </div>
-        </div>
+        @endforeach
       </div>
       <div class="col-lg-6">
-        <div class="single-baner-nw2 mb-30 text-center">
-          <div class="banner-img-cap2">
-            <div class="banner-img">
-              <img src="{{ asset('img/img/gallery/latest-post4.png') }}" alt="">
-            </div>
-            <div class="banner-cap2">
-              <p>Design</p>
-              <h3>
-                <a href="post_details.html">Researchers control cattle microbiome  to reduce greenhouse gases</a>
-              </h3>
+        @foreach( $berita4 as $ber )
+          <div class="single-baner-nw2 mb-30 text-center">
+            <div class="banner-img-cap2">
+              <div class="banner-img">
+                <img src="{{ asset('img/news/'.$ber -> sampul) }}" alt="">
+              </div>
+              <div class="banner-cap2">
+                <p>{{ $ber -> user_nama }}</p>
+                <h3>
+                  <a href="#">{{ $ber -> judul }}</a>
+                </h3>
+              </div>
             </div>
           </div>
-        </div>
+        @endforeach
       </div>
     </div>
   </div>
