@@ -60,7 +60,7 @@
               <nav>
                 <ul id="navigation">
                   <li><a href="#">Galeri</a></li>
-                  <li><a href="#">Berita</a></li>
+                  <li><a href="{{ route('index.berita') }}">Berita</a></li>
                   <li><a href="#">Testimoni</a></li>
                   <li><a href="#">Video</a></li>
                 </ul>

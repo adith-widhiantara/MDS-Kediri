@@ -17,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::get('/', 'LandingController@index')->name('landing');
 // end landing
+
+// berita
+Route::prefix('berita')->group(function () {
+  Route::get('', 'BeritaController@index')->name('index.berita');
+  Route::get('create', 'BeritaController@create')->name('create.berita');
+  Route::post('create', 'BeritaController@store')->name('create.send.berita');
+  Route::get('{berita}', 'BeritaController@show')->name('detail.berita');
+});
+// end berita

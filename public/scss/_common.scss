@@ -172,8 +172,8 @@ hr {
 
 // Section Padding
 	.section-padding{
-		padding-top: 120px;
-		padding-bottom: 120px;
+		padding-top: 20px;
+		padding-bottom: 20px;
 	}
 	.separator {
 		border-top: 1px solid #f2f2f2
@@ -932,8 +932,8 @@ hr {
 	}
 
 	.footer-padding{
-		padding-top: 120px;
-		padding-bottom: 120px;
+		padding-top: 20px;
+		padding-bottom: 20px;
 		@media #{$md}{
 			padding-top: 100px;
 			padding-bottom: 70px;

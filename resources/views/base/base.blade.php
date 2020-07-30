@@ -38,8 +38,12 @@
       @include('base.header')
     <!-- end header -->
 
+    <a href="" class="btn">testing</a>
+
     <!-- content -->
+    <main>
       @yield('content')
+    </main>
     <!-- end content -->
 
     <!-- footer -->

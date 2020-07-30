@@ -8,7 +8,6 @@
 @endsection
 
 @section('content')
-<main>
   <!-- galeri -->
     @include('content.landing.1news')
   <!-- end galeri -->
@@ -42,5 +41,4 @@
     @include('content.landing.7subscribe')
     --}}
   <!-- end Subscribe -->
-</main>
 @endsection

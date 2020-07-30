@@ -202,6 +202,16 @@ del {
             border: 1px solid transparent;
         }
     }
+    &.green900-border {
+        color: $green900;
+        border: 1px solid $green900;
+        background: $white;
+        &:hover {
+            color: $white;
+            background: $green900;
+            border: 1px solid transparent;
+        }
+    }
     &.success {
         color: $white;
         background: $success;
@@ -486,7 +496,7 @@ del {
     line-height: 40px;
     border: none;
     outline: none;
-    background: #f9f9ff;
+    background: $green50;
     padding: 0 20px;
     &:focus {
         outline: none;
@@ -516,7 +526,7 @@ del {
     line-height: 40px;
     border: none;
     outline: none;
-    background: #f9f9ff;
+    background: $green50;
     padding: 0 20px;
     height: 100px;
     resize: none;

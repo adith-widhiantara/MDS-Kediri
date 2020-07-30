@@ -26,7 +26,7 @@
                     margin-bottom: 20px;
                 }
             }
-        } 
+        }
         .comments-tittle{
             @media #{$xs}{
                 padding: 14px;
@@ -76,7 +76,7 @@
                 padding-top: 25px;
             }
         }
-    } 
+    }
 }
 
 /* 21. Contact */
@@ -95,7 +95,7 @@ input {
     width: 100%;
     padding: 10px 25px;
     padding-right: 30px;
-    color: #a3a3a3;
+    color: #363636;
     font-weight: 500;
     text-transform: capitalize;
     border-radius: 0px;
@@ -129,7 +129,7 @@ input {
     }
 }
 textarea {
-        color: #a3a3a3;
+        color: #363636;
         border: 1px solid #eaeaea;
         font-weight: 500;
         letter-spacing: 2px;
@@ -304,4 +304,3 @@ input:focus::-webkit-input-placeholder {
 .single-mam-img img {
     width: 100%;
 }
-

@@ -13,6 +13,7 @@ class Berita extends Model
                       'sampul',
                       'caption',
                       'waktu',
+                      'bulan',
                       'status',
                       'user_id',
                       'user_nama',
