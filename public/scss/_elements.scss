@@ -124,7 +124,7 @@ del {
     display: inline-block;
     outline: none;
     line-height: 40px;
-    padding: 0 30px;
+    padding: 0 10px;
     font-size: .8em;
     text-align: center;
     text-decoration: none;
@@ -528,7 +528,7 @@ del {
     outline: none;
     background: $green50;
     padding: 0 20px;
-    height: 100px;
+    height: 300px;
     resize: none;
     &:focus {
         outline: none;

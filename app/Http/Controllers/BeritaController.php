@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Berita;
 use App\Galeri;
 use App\Santri;
+use App\Video;
 use Illuminate\Http\Request;
 
 class BeritaController extends Controller
@@ -25,6 +26,8 @@ class BeritaController extends Controller
                   ->count();
       $countSantri = Santri::where('status', 2)
                   ->count();
+      $countVideo = Video::where('status', 2)
+                  ->count();
 
       $recentSantri = Santri::where('status', 2)
                   ->orderBy('id', 'desc')
@@ -35,6 +38,7 @@ class BeritaController extends Controller
                                                   'countBerita',
                                                   'countGaleri',
                                                   'countSantri',
+                                                  'countVideo',
                                                   'recentSantri',
                                                     ));
     }
@@ -52,10 +56,14 @@ class BeritaController extends Controller
                   ->count();
       $countSantri = Santri::where('status', 2)
                   ->count();
+      $countVideo = Video::where('status', 2)
+                  ->count();
+
       return view('content.berita.create.0index', compact(
                                                           'countBerita',
                                                           'countGaleri',
                                                           'countSantri',
+                                                          'countVideo',
                                                         ));
     }
 
@@ -97,7 +105,7 @@ class BeritaController extends Controller
       $berita = Berita::where('judul', $berita)
                 ->first();
 
-      $postTerakhir = Berita::where('status', 2)
+      $postTerakhir = Santri::where('status', 2)
                 ->orderBy('id', 'desc')
                 ->take(1)
                 ->get();
@@ -112,6 +120,8 @@ class BeritaController extends Controller
                   ->count();
       $countSantri = Santri::where('status', 2)
                   ->count();
+      $countVideo = Video::where('status', 2)
+                  ->count();
 
       $recentSantri = Santri::where('status', 2)
                   ->orderBy('id', 'desc')
@@ -124,6 +134,7 @@ class BeritaController extends Controller
                                                   'countBerita',
                                                   'countGaleri',
                                                   'countSantri',
+                                                  'countVideo',
                                                   'recentSantri',
                                                   ));
     }

@@ -9,16 +9,23 @@
       </a>
     </li>
     <li>
-      <a href="#" class="d-flex">
+      <a href="{{ route('index.galeri') }}" class="d-flex">
         <p class="fontP">
           Galeri ({{ $countGaleri }})
         </p>
       </a>
     </li>
     <li>
-      <a href="#" class="d-flex">
+      <a href="{{ route('index.santri') }}" class="d-flex">
         <p class="fontP">
           Cerita Santri ({{ $countSantri }})
+        </p>
+      </a>
+    </li>
+    <li>
+      <a href="{{ route('index.video') }}" class="d-flex">
+        <p class="fontP">
+          Video ({{ $countVideo }})
         </p>
       </a>
     </li>

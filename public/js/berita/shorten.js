@@ -7,8 +7,8 @@ for (var i = 0; i < 5; i++) {
 
   var longTextTanggal = document.getElementsByClassName('tanggalPost')[i].innerText;
   var shortTextTanggal = document.getElementsByClassName('tanggalPost')[i];
-  var left_textTanggal = longTextTanggal.substr(7, 2);
-  shortTextTanggal.innerText = left_textTanggal;
+  var commaTanggal = longTextTanggal.substr(longTextTanggal.indexOf(" "), 3);
+  shortTextTanggal.innerText = commaTanggal;
 
   var longTextBulan = document.getElementsByClassName('bulanPost')[i].innerText;
   var shortTextBulan = document.getElementsByClassName('bulanPost')[i];

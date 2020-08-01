@@ -19,7 +19,7 @@
       <div class="col-lg-4">
         <div class="blog_right_sidebar">
           @include('content.berita.3search')
-          @include('content.berita.4category')
+          @include('base.countKonten')
           @include('content.berita.5recentTestimoni')
           @include('content.berita.6widget')
         </div>

@@ -20,7 +20,7 @@
 
               <div class="header-info-mid">
                 <div class="logo">
-                  <a href="#">
+                  <a href="{{ route('landing') }}">
                     <img class="img-logo" src="{{ asset('img/podLogo.png') }}" alt="">
                   </a>
                 </div>
@@ -59,10 +59,10 @@
             <div class="main-menu text-center d-none d-lg-block">
               <nav>
                 <ul id="navigation">
-                  <li><a href="#">Galeri</a></li>
+                  <li><a href="{{ route('index.galeri') }}">Galeri</a></li>
                   <li><a href="{{ route('index.berita') }}">Berita</a></li>
-                  <li><a href="#">Testimoni</a></li>
-                  <li><a href="#">Video</a></li>
+                  <li><a href="{{ route('index.santri') }}">Testimoni</a></li>
+                  <li><a href="{{ route('index.video') }}">Video</a></li>
                 </ul>
               </nav>
             </div>

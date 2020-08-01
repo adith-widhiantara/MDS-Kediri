@@ -37,18 +37,18 @@
         @foreach ( $galeriTerakhir as $gal )
           <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
             <div class="thumb">
-              <a href="#">
+              <a href="{{ route('detail.galeri',$gal -> judul) }}">
                 <img src="{{ asset('img/galeri/'.$gal->sampul) }}" alt="">
               </a>
             </div>
             <div class="arrow">
-              <a href="#">
+              <a href="{{ route('detail.galeri',$gal -> judul) }}">
                 <span class="lnr text-white ti-arrow-left"></span>
               </a>
             </div>
             <div class="detials">
               <p>Galeri Terbaru</p>
-              <a href="#">
+              <a href="{{ route('detail.galeri',$gal -> judul) }}">
                 <h4 style="color: #2d2d2d;">{{ $gal -> judul }}</h4>
               </a>
             </div>
@@ -57,19 +57,19 @@
          @foreach( $postTerakhir as $post )
            <div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
               <div class="detials">
-                 <p>Berita Terbaru</p>
-                 <a href="{{ route('detail.berita',$post -> judul) }}">
+                 <p>Testimoni Terbaru</p>
+                 <a href="{{ route('detail.santri',$post -> judul) }}">
                     <h4 style="color: #2d2d2d;">{{ $post -> judul }}</h4>
                  </a>
               </div>
               <div class="arrow">
-                 <a href="{{ route('detail.berita',$post -> judul) }}">
+                 <a href="{{ route('detail.santri',$post -> judul) }}">
                     <span class="lnr text-white ti-arrow-right"></span>
                  </a>
               </div>
               <div class="thumb">
-                 <a href="{{ route('detail.berita',$post -> judul) }}">
-                    <img src="{{ asset('img/news/'.$post -> sampul) }}" alt="">
+                 <a href="{{ route('detail.santri',$post -> judul) }}">
+                    <img src="{{ asset('img/santri/'.$post -> sampul) }}" alt="">
                  </a>
               </div>
            </div>

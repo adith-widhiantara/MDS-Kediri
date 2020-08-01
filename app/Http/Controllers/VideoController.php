@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Video;
+use App\Santri;
+use App\Berita;
+use App\Galeri;
+use Illuminate\Http\Request;
 
 class VideoController extends Controller
 {
@@ -14,7 +17,26 @@ class VideoController extends Controller
      */
     public function index()
     {
-        //
+      $video = Video::orderBy('id', 'desc')
+                    ->where('status', 2)
+                    ->paginate(12);
+
+      $countBerita = Berita::where('status', 2)
+                  ->count();
+      $countGaleri = Galeri::where('status', 2)
+                  ->count();
+      $countSantri = Santri::where('status', 2)
+                  ->count();
+      $countVideo = Video::where('status', 2)
+                  ->count();
+
+      return view('content.video.0index',compact(
+                                                  'video',
+                                                  'countBerita',
+                                                  'countGaleri',
+                                                  'countSantri',
+                                                  'countVideo',
+                                                ));
     }
 
     /**
@@ -24,7 +46,21 @@ class VideoController extends Controller
      */
     public function create()
     {
-        //
+      $countBerita = Berita::where('status', 2)
+                  ->count();
+      $countGaleri = Galeri::where('status', 2)
+                  ->count();
+      $countSantri = Santri::where('status', 2)
+                  ->count();
+      $countVideo = Video::where('status', 2)
+                  ->count();
+
+      return view('content.video.create.0index', compact(
+                                                        'countBerita',
+                                                        'countGaleri',
+                                                        'countSantri',
+                                                        'countVideo',
+                                                        ));
     }
 
     /**
@@ -35,7 +71,21 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $file = $request->file('sampul');
+      $tujuan_upload = 'img/video';
+      $nama_file = time()."_".$file->getClientOriginalName();
+      $file->move($tujuan_upload,$nama_file);
+
+      Video::create([
+        'caption' => $request -> caption,
+        'sampul' => $nama_file,
+        'linkVideo' => $request -> linkVideo,
+        'status' => 1,
+        'user_id' => $request -> user_id,
+        'user_nama' => $request -> user_nama,
+      ]);
+
+      return redirect()->route('index.video');
     }
 
     /**

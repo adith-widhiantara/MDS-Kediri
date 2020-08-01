@@ -26,3 +26,29 @@ Route::prefix('berita')->group(function () {
   Route::get('{berita}', 'BeritaController@show')->name('detail.berita');
 });
 // end berita
+
+// santri
+Route::prefix('testimoni')->group(function () {
+  Route::get('', 'SantriController@index')->name('index.santri');
+  Route::get('create', 'SantriController@create')->name('create.santri');
+  Route::post('create', 'SantriController@store')->name('create.send.santri');
+  Route::get('{santri}', 'SantriController@show')->name('detail.santri');
+});
+// end santri
+
+// galery
+Route::prefix('galeri')->group(function () {
+  Route::get('', 'GaleriController@index')->name('index.galeri');
+  Route::get('create', 'GaleriController@create')->name('create.galeri');
+  Route::post('create', 'GaleriController@store')->name('create.send.galeri');
+  Route::get('{galeri}', 'GaleriController@show')->name('detail.galeri');
+});
+// end galery
+
+// video
+Route::prefix('video')->group(function () {
+  Route::get('', 'VideoController@index')->name('index.video');
+  Route::get('create', 'VideoController@create')->name('create.video');
+  Route::post('create', 'VideoController@store')->name('create.send.video');
+});
+// end video

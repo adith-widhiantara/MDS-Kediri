@@ -1,0 +1,1 @@
+<iframe id="iframe" title="prayerWidget" class="widget-m-top" style="height: 358px; border: 0px solid #ddd;" scrolling="no" src="https://www.islamicfinder.org/prayer-widget/1640660/shafi/11/0/20.0/18.0"> </iframe>

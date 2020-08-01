@@ -41,10 +41,10 @@
                 <div class="main-menu text-center">
                   <nav>
                     <ul>
-                      <li><a href="#">Galeri</a></li>
+                      <li><a href="{{ route('index.galeri') }}">Galeri</a></li>
                       <li><a href="{{ route('index.berita') }}">Berita</a></li>
-                      <li><a href="#">Testimoni</a></li>
-                      <li><a href="#">Video</a></li>
+                      <li><a href="{{ route('index.santri') }}">Testimoni</a></li>
+                      <li><a href="{{ route('index.video') }}">Video</a></li>
                     </ul>
                   </nav>
                 </div>
