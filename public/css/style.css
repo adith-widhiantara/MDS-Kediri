@@ -3162,6 +3162,9 @@ form.search-box {
 .indexGaleri .col-xl-4,
 .indexGaleri .col-lg-4 {
   margin-top: 30px; }
+.indexGaleri .blog_left_sidebar .text h1 {
+  text-transform: capitalize;
+  color: #1B5E20; }
 .indexGaleri .card-img-top {
   height: 200px;
   object-fit: cover; }
@@ -3191,6 +3194,14 @@ form.search-box {
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   .indexGaleri .card-body .card-text {
     font-size: 12px; } }
+.indexGaleri .card-body .status .redText {
+  color: #d50000;
+  text-transform: capitalize; }
+.indexGaleri .card-body .status .yellowText {
+  color: #F9A825;
+  text-transform: capitalize; }
+.indexGaleri .card-body .status .greenText {
+  color: #1B5E20; }
 .indexGaleri .genric-btn {
   display: block; }
   .indexGaleri .genric-btn.kunjungiBtn {
@@ -3213,6 +3224,12 @@ form.search-box {
     border: 1px solid #1B5E20;
     background: #ffffff; }
 
+.videoPage .text h1 {
+  text-transform: capitalize;
+  color: #1B5E20; }
+.videoPage .banner .col-xl-3,
+.videoPage .banner .col-lg-3 {
+  margin-top: 30px; }
 .videoPage .banner .banner-vid-img {
   position: relative; }
   .videoPage .banner .banner-vid-img img {
@@ -3304,6 +3321,126 @@ form.search-box {
       transform: scale(1);
       opacity: 1;
       visibility: visible; }
+.videoPage .banner .statusText p {
+  text-align: center; }
+  .videoPage .banner .statusText p .redText {
+    color: #d50000;
+    text-transform: capitalize; }
+  .videoPage .banner .statusText p .yellowText {
+    color: #F9A825;
+    text-transform: capitalize; }
+  .videoPage .banner .statusText p .greenText {
+    color: #1B5E20; }
+
+.indexBerita .blog_left_sidebar .text h1 {
+  text-transform: capitalize;
+  color: #1B5E20; }
+.indexBerita .blog_left_sidebar .col-xl-4,
+.indexBerita .blog_left_sidebar .col-lg-4 {
+  margin-top: 30px; }
+.indexBerita .blog_left_sidebar .card-img-top {
+  height: 200px;
+  object-fit: cover; }
+.indexBerita .blog_left_sidebar .card-body .card-title {
+  color: #1B5E20;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+  @media only screen and (min-width: 1200px) and (max-width: 1600px) {
+    .indexBerita .blog_left_sidebar .card-body .card-title {
+      font-size: 20px; } }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .indexBerita .blog_left_sidebar .card-body .card-title {
+      font-size: 16px; } }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .indexBerita .blog_left_sidebar .card-body .card-title {
+      font-size: 16px; } }
+  @media only screen and (min-width: 576px) and (max-width: 767px) {
+    .indexBerita .blog_left_sidebar .card-body .card-title {
+      font-size: 16px; } }
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .indexBerita .blog_left_sidebar .card-body .card-text {
+    font-size: 15px; } }
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .indexBerita .blog_left_sidebar .card-body .card-text {
+    font-size: 14px; } }
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .indexBerita .blog_left_sidebar .card-body .card-text {
+    font-size: 12px; } }
+.indexBerita .blog_left_sidebar .card-body .status .redText {
+  color: #d50000;
+  text-transform: capitalize; }
+.indexBerita .blog_left_sidebar .card-body .status .yellowText {
+  color: #F9A825;
+  text-transform: capitalize; }
+.indexBerita .blog_left_sidebar .card-body .status .greenText {
+  color: #1B5E20; }
+.indexBerita .blog_left_sidebar .card-body .genric-btn {
+  display: block; }
+  .indexBerita .blog_left_sidebar .card-body .genric-btn.kunjungiBtn {
+    color: #1B5E20;
+    border: 1px solid #1B5E20;
+    background: #ffffff;
+    border-radius: 3px; }
+    .indexBerita .blog_left_sidebar .card-body .genric-btn.kunjungiBtn:hover {
+      color: #ffffff;
+      background: #1B5E20;
+      border: 1px solid transparent; }
+
+.santriIndex .blog_left_sidebar .text h1 {
+  text-transform: capitalize;
+  color: #1B5E20; }
+.santriIndex .blog_left_sidebar .col-xl-4,
+.santriIndex .blog_left_sidebar .col-lg-4 {
+  margin-top: 30px; }
+.santriIndex .blog_left_sidebar .card-img-top {
+  height: 200px;
+  object-fit: cover; }
+.santriIndex .blog_left_sidebar .card-body .card-title {
+  color: #1B5E20;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+  @media only screen and (min-width: 1200px) and (max-width: 1600px) {
+    .santriIndex .blog_left_sidebar .card-body .card-title {
+      font-size: 20px; } }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .santriIndex .blog_left_sidebar .card-body .card-title {
+      font-size: 16px; } }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .santriIndex .blog_left_sidebar .card-body .card-title {
+      font-size: 16px; } }
+  @media only screen and (min-width: 576px) and (max-width: 767px) {
+    .santriIndex .blog_left_sidebar .card-body .card-title {
+      font-size: 16px; } }
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .santriIndex .blog_left_sidebar .card-body .card-text {
+    font-size: 15px; } }
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .santriIndex .blog_left_sidebar .card-body .card-text {
+    font-size: 14px; } }
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .santriIndex .blog_left_sidebar .card-body .card-text {
+    font-size: 12px; } }
+.santriIndex .blog_left_sidebar .card-body .status .redText {
+  color: #d50000;
+  text-transform: capitalize; }
+.santriIndex .blog_left_sidebar .card-body .status .yellowText {
+  color: #F9A825;
+  text-transform: capitalize; }
+.santriIndex .blog_left_sidebar .card-body .status .greenText {
+  color: #1B5E20; }
+.santriIndex .blog_left_sidebar .card-body .genric-btn {
+  display: block; }
+  .santriIndex .blog_left_sidebar .card-body .genric-btn.kunjungiBtn {
+    color: #1B5E20;
+    border: 1px solid #1B5E20;
+    background: #ffffff;
+    border-radius: 3px; }
+    .santriIndex .blog_left_sidebar .card-body .genric-btn.kunjungiBtn:hover {
+      color: #ffffff;
+      background: #1B5E20;
+      border: 1px solid transparent; }
 
 .pagination-area {
   padding-top: 50px; }
@@ -3669,12 +3806,14 @@ input:focus::-webkit-input-placeholder {
   .register-form-area .register-form .register-heading {
     text-align: center; }
     .register-form-area .register-form .register-heading span {
-      color: #140C40;
+      color: #1B5E20;
       font-size: 30px;
       font-weight: 600;
       margin-bottom: 16px;
       display: block;
       text-transform: capitalize; }
+    .register-form-area .register-form .register-heading p {
+      color: #1B5E20; }
   .register-form-area .register-form .input-box {
     padding-top: 35px;
     padding-bottom: 60px; }
@@ -3686,7 +3825,7 @@ input:focus::-webkit-input-placeholder {
       display: block;
       font-size: 17px;
       margin-bottom: 6px;
-      color: #140C40;
+      color: #1B5E20;
       text-transform: capitalize;
       font-weight: 500;
       text-align: left; }
@@ -3713,6 +3852,16 @@ input:focus::-webkit-input-placeholder {
       .register-form-area .register-form .register-footer {
         display: block;
         text-align: start; } }
+    .register-form-area .register-form .register-footer .submit {
+      background: #1B5E20;
+      height: 60px;
+      padding: 10px 43px;
+      border: 0;
+      color: #ffffff;
+      text-transform: capitalize;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 0px; }
     .register-form-area .register-form .register-footer p {
       margin: 0; }
       @media only screen and (min-width: 576px) and (max-width: 767px) {
@@ -3736,12 +3885,14 @@ input:focus::-webkit-input-placeholder {
   .login-form-area .login-form .login-heading {
     text-align: center; }
     .login-form-area .login-form .login-heading span {
-      color: #140C40;
+      color: #1B5E20;
       font-size: 30px;
       font-weight: 600;
       margin-bottom: 16px;
       display: block;
       text-transform: capitalize; }
+    .login-form-area .login-form .login-heading p {
+      color: #1B5E20; }
   .login-form-area .login-form .input-box {
     padding-top: 35px;
     padding-bottom: 75px; }
@@ -3753,7 +3904,7 @@ input:focus::-webkit-input-placeholder {
       display: block;
       font-size: 17px;
       margin-bottom: 6px;
-      color: #140C40;
+      color: #1B5E20;
       text-transform: capitalize;
       font-weight: 500;
       text-align: left; }
@@ -3780,6 +3931,16 @@ input:focus::-webkit-input-placeholder {
       .login-form-area .login-form .login-footer {
         display: block;
         text-align: start; } }
+    .login-form-area .login-form .login-footer .submit {
+      background: #1B5E20;
+      height: 60px;
+      padding: 10px 43px;
+      border: 0;
+      color: #ffffff;
+      text-transform: capitalize;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 0px; }
     .login-form-area .login-form .login-footer p {
       margin: 0; }
       @media only screen and (min-width: 576px) and (max-width: 767px) {
@@ -3825,8 +3986,8 @@ input:focus::-webkit-input-placeholder {
   .login-check input[type=checkbox] + label:active:before {
     transform: scale(0); }
   .login-check input[type=checkbox]:checked + label:before {
-    background-color: #140C40;
-    border-color: #140C40;
+    background-color: #1B5E20;
+    border-color: #1B5E20;
     color: #fff;
     line-height: 18px; }
   .login-check a {

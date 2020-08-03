@@ -7,7 +7,9 @@ use App\Berita;
 use App\Information;
 use App\Video;
 use App\Santri;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class LandingController extends Controller
 {
@@ -107,7 +109,14 @@ class LandingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      User::create([
+          'namalengkap' => $request->namaLengkap,
+          'username' => $request->username,
+          'password' => Hash::make($request->password),
+      ]);
+
+      return redirect()->route('login')
+                      ->with('acc', 'a');
     }
 
     /**

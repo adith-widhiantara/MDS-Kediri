@@ -7,6 +7,7 @@ use App\Galeri;
 use App\Santri;
 use App\Video;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GaleriController extends Controller
 {
@@ -51,21 +52,26 @@ class GaleriController extends Controller
      */
     public function create()
     {
-      $countBerita = Berita::where('status', 2)
-                  ->count();
-      $countGaleri = Galeri::where('status', 2)
-                  ->count();
-      $countSantri = Santri::where('status', 2)
-                  ->count();
-      $countVideo = Video::where('status', 2)
-                  ->count();
+      if (Auth::check()) {
+        $countBerita = Berita::where('status', 2)
+        ->count();
+        $countGaleri = Galeri::where('status', 2)
+        ->count();
+        $countSantri = Santri::where('status', 2)
+        ->count();
+        $countVideo = Video::where('status', 2)
+        ->count();
 
-      return view('content.galeri.create.0index', compact(
-                                                          'countBerita',
-                                                          'countGaleri',
-                                                          'countSantri',
-                                                          'countVideo',
-                                                        ));
+        return view('content.galeri.create.0index', compact(
+                                                            'countBerita',
+                                                            'countGaleri',
+                                                            'countSantri',
+                                                            'countVideo',
+                                                          ));
+
+      } else {
+        return redirect()->route('login');
+      }
     }
 
     /**
@@ -76,23 +82,30 @@ class GaleriController extends Controller
      */
     public function store(Request $request)
     {
-      $file = $request->file('sampul');
-  		$tujuan_upload = 'img/galeri';
-      $nama_file = time()."_".$file->getClientOriginalName();
-  		$file->move($tujuan_upload,$nama_file);
+      if (Auth::check()) {
+        $file = $request->file('sampul');
+        $tujuan_upload = 'img/galeri';
+        $nama_file = time()."_".$file->getClientOriginalName();
+        $file->move($tujuan_upload,$nama_file);
 
-      Galeri::create([
-        'judul' => $request -> judul,
-        'sampul' => $nama_file,
-        'caption' => $request -> caption,
-        'waktu' => $request -> waktu,
-        'status' => 1,
-        'linkVideo' => $request -> linkVideo,
-        'user_id' => $request -> user_id,
-        'user_nama' => $request -> user_nama,
-      ]);
+        $user_id = Auth::id();
+        $user_namalengkap = Auth::user()->namalengkap;
 
-      return redirect()->route('index.galeri');
+        Galeri::create([
+          'judul' => $request -> judul,
+          'sampul' => $nama_file,
+          'caption' => $request -> caption,
+          'waktu' => $request -> waktu,
+          'status' => 1,
+          'linkVideo' => $request -> linkVideo,
+          'user_id' => $user_id,
+          'user_nama' => $user_namalengkap,
+        ]);
+
+        return redirect()->route('mine.galeri');
+      } else {
+        return redirect()->route('login');
+      }
     }
 
     /**
@@ -138,6 +151,39 @@ class GaleriController extends Controller
                                                           'countVideo',
                                                           'recentBerita',
                                                         ));
+    }
+
+    public function mine(){
+      if (Auth::check()) {
+        $user_id = Auth::id();
+        $galeri = Galeri::where('user_id', $user_id)
+                    ->orderBy('id', 'desc')
+                    ->paginate(9);
+        $countBerita = Berita::where('status', 2)
+                    ->count();
+        $countGaleri = Galeri::where('status', 2)
+                    ->count();
+        $countSantri = Santri::where('status', 2)
+                    ->count();
+        $countVideo = Video::where('status', 2)
+                    ->count();
+
+        $recentBerita = Berita::where('status', 2)
+                    ->orderBy('id', 'desc')
+                    ->take(4)
+                    ->get();
+
+        return view('content.galeri.mine.0index', compact(
+                                                          'galeri',
+                                                          'countBerita',
+                                                          'countGaleri',
+                                                          'countSantri',
+                                                          'countVideo',
+                                                          'recentBerita',
+                                                          ));
+      } else {
+        return redirect()->route('login');
+      }
     }
 
     /**

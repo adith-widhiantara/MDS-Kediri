@@ -10,7 +10,7 @@
         .login-heading{
             text-align: center;
             span{
-                color: #140C40;
+                color: $green900;
                 font-size: 30px;
                 font-weight: 600;
                 margin-bottom: 16px;
@@ -18,7 +18,7 @@
                 text-transform: capitalize;
             }
             p{
-
+                color: $green900;
             }
         }
         // Input Box
@@ -34,7 +34,7 @@
                     display: block;
                     font-size: 17px;
                     margin-bottom: 6px;
-                    color: #140C40;
+                    color: $green900;
                     text-transform: capitalize;
                     font-weight: 500;
                     text-align: left;
@@ -68,6 +68,17 @@
                 display: block;
                 text-align: start;
             }
+            .submit{
+              background: $green900;
+              height: 60px;
+              padding: 10px 43px;
+              border: 0;
+              color: $white;
+              text-transform: capitalize;
+              cursor: pointer;
+              font-size: 16px;
+              border-radius: 0px;
+            }
             p{
                 margin: 0;
                 @media #{$sm}{
@@ -81,7 +92,7 @@
                 a{
                     color: #0074E8;
                 }
-               
+
             }
         }
 
@@ -107,11 +118,11 @@
             margin: 0 0 13px 0;
 
         }
-        
+
         input[type=checkbox] {
             display: none;
         }
-        
+
     input[type="checkbox"] + label::before {
             content: "\2714";
             border: 0.1em solid #e4e4e4;
@@ -129,15 +140,15 @@
         input[type=checkbox] + label:active:before {
             transform: scale(0);
         }
-        
+
         input[type=checkbox]:checked + label:before {
-            background-color: #140C40;
-            border-color: #140C40;
+            background-color: $green900;
+            border-color: $green900;
             color: #fff;
             line-height: 18px;
         }
 
-        //   Forgot Password 
+        //   Forgot Password
         a{
             color: #0074E8;
             font-size: 14px;
@@ -153,4 +164,3 @@
             }
         }
     }
-

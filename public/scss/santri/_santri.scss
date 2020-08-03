@@ -1,0 +1,85 @@
+.santriIndex{
+  .blog_left_sidebar{
+    .text{
+      h1{
+        text-transform: capitalize;
+        color: $green900;
+      }
+    }
+
+    .col-xl-4,
+    .col-lg-4{
+      margin-top: 30px;
+    }
+
+    .card-img-top{
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-body{
+      .card-title{
+        @media #{$laptop}{
+          font-size: 20px;
+        }
+        @media #{$lg}{
+          font-size: 16px;
+        }
+        @media #{$md}{
+          font-size: 16px;
+        }
+        @media #{$sm}{
+          font-size: 16px;
+        }
+        color: $green900;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .card-text{
+        @media #{$laptop}{
+
+        }
+        @media #{$lg}{
+          font-size: 15px;
+        }
+        @media #{$md}{
+          font-size: 14px;
+        }
+        @media #{$sm}{
+          font-size: 12px;
+        }
+      }
+
+      .status{
+        .redText{
+          color: $red800;
+          text-transform: capitalize;
+        }
+        .yellowText{
+          color: $yellow500;
+          text-transform: capitalize;
+        }
+        .greenText{
+          color: $green900;
+        }
+      }
+
+      .genric-btn{
+        display: block;
+        &.kunjungiBtn {
+            color: $green900;
+            border: 1px solid $green900;
+            background: $white;
+            border-radius: 3px;
+            &:hover {
+                color: $white;
+                background: $green900;
+                border: 1px solid transparent;
+            }
+        }
+      }
+    }
+  }
+}

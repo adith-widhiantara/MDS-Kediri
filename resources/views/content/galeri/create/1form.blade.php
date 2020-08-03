@@ -10,15 +10,13 @@
     </div>
   </div>
   <div class="mt-10">
-    <input type="text" name="linkVideo" placeholder="Link Video Youtube" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Link Video Youtube *Jika ada'" required class="single-input">
+    <input type="text" name="linkVideo" placeholder="Link Video Youtube" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Link Video Youtube *Jika ada'" class="single-input">
     <small class="form-text text-muted">Dapat menyertakan video Youtube, apabila ada. Dengan menyertakan link video Youtube</small>
   </div>
   <div class="mt-10">
     <textarea name="caption" class="single-textarea" placeholder="Isi Galeri" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Isi Galeri'" required></textarea>
     <input type="hidden" id="waktuUpload" name="waktu">
     <input type="hidden" id="waktuUploadBulan" name="bulan">
-    <input type="hidden" name="user_id" value="5">
-    <input type="hidden" name="user_nama" value="Aditya Saktyawan WWW">
   </div>
 
   <div class="mt-10">

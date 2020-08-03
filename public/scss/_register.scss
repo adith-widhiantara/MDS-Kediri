@@ -9,7 +9,7 @@
         .register-heading{
             text-align: center;
             span{
-                color: #140C40;
+                color: $green900;
                 font-size: 30px;
                 font-weight: 600;
                 margin-bottom: 16px;
@@ -17,7 +17,7 @@
                 text-transform: capitalize;
             }
             p{
-
+                color: $green900;
             }
         }
         // Input Box
@@ -33,7 +33,7 @@
                     display: block;
                     font-size: 17px;
                     margin-bottom: 6px;
-                    color: #140C40;
+                    color: $green900;
                     text-transform: capitalize;
                     font-weight: 500;
                     text-align: left;
@@ -66,7 +66,17 @@
                 display: block;
                 text-align: start;
             }
-
+            .submit{
+              background: $green900;
+              height: 60px;
+              padding: 10px 43px;
+              border: 0;
+              color: $white;
+              text-transform: capitalize;
+              cursor: pointer;
+              font-size: 16px;
+              border-radius: 0px;
+            }
             p{
                 margin: 0;
                 @media #{$sm}{
@@ -80,11 +90,9 @@
                 a{
                     color: #0074E8;
                 }
-               
+
             }
         }
 
     }
 }
-
-

@@ -16,30 +16,34 @@
       Cari Galeri
     </button>
     <div class="row">
-      {{--
-        @auth
-        --}}
+      @auth
         @if(URL::current() != route('create.galeri'))
-          <div class="col-6">
+          <div class="
+          @if(URL::current() != route('mine.galeri'))
+          col-6
+          @else
+          col-12
+          @endif
+          ">
             <a href="{{ route('create.galeri') }}" class="genric-btn primary-border">
               Tambah Galeri
             </a>
           </div>
         @endif
-        <div class="
-        @if(URL::current() != route('create.galeri'))
-        col-6
-        @else
-        col-12
+        @if(URL::current() != route('mine.galeri'))
+          <div class="
+          @if(URL::current() != route('create.galeri'))
+          col-6
+          @else
+          col-12
+          @endif
+          ">
+            <a href="{{ route('mine.galeri') }}" class="genric-btn primary-border">
+              Galeri Saya
+            </a>
+          </div>
         @endif
-        ">
-          <a href="" class="genric-btn primary-border">
-            Galeri Saya
-          </a>
-        </div>
-        {{--
-          @endauth
-          --}}
+      @endauth
     </div>
   </form>
 </aside>

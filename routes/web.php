@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 // landing
 Auth::routes();
 Route::get('/', 'LandingController@index')->name('landing');
+Route::post('register', 'LandingController@store')->name('register.acc');
 // end landing
 
 // berita
@@ -23,6 +24,7 @@ Route::prefix('berita')->group(function () {
   Route::get('', 'BeritaController@index')->name('index.berita');
   Route::get('create', 'BeritaController@create')->name('create.berita');
   Route::post('create', 'BeritaController@store')->name('create.send.berita');
+  Route::get('mine', 'BeritaController@mine')->name('mine.berita');
   Route::get('{berita}', 'BeritaController@show')->name('detail.berita');
 });
 // end berita
@@ -32,6 +34,7 @@ Route::prefix('testimoni')->group(function () {
   Route::get('', 'SantriController@index')->name('index.santri');
   Route::get('create', 'SantriController@create')->name('create.santri');
   Route::post('create', 'SantriController@store')->name('create.send.santri');
+  Route::get('mine', 'SantriController@mine')->name('mine.santri');
   Route::get('{santri}', 'SantriController@show')->name('detail.santri');
 });
 // end santri
@@ -41,6 +44,7 @@ Route::prefix('galeri')->group(function () {
   Route::get('', 'GaleriController@index')->name('index.galeri');
   Route::get('create', 'GaleriController@create')->name('create.galeri');
   Route::post('create', 'GaleriController@store')->name('create.send.galeri');
+  Route::get('mine', 'GaleriController@mine')->name('mine.galeri');
   Route::get('{galeri}', 'GaleriController@show')->name('detail.galeri');
 });
 // end galery
@@ -50,5 +54,6 @@ Route::prefix('video')->group(function () {
   Route::get('', 'VideoController@index')->name('index.video');
   Route::get('create', 'VideoController@create')->name('create.video');
   Route::post('create', 'VideoController@store')->name('create.send.video');
+  Route::get('mine', 'VideoController@mine')->name('mine.video');
 });
 // end video

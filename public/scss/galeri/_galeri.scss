@@ -4,6 +4,15 @@
     margin-top: 30px;
   }
 
+  .blog_left_sidebar{
+    .text{
+      h1{
+        text-transform: capitalize;
+        color: $green900;
+      }
+    }
+  }
+
   .card-img-top{
     height: 200px;
     object-fit: cover;
@@ -41,6 +50,20 @@
       }
       @media #{$sm}{
         font-size: 12px;
+      }
+    }
+
+    .status{
+      .redText{
+        color: $red800;
+        text-transform: capitalize;
+      }
+      .yellowText{
+        color: $yellow500;
+        text-transform: capitalize;
+      }
+      .greenText{
+        color: $green900;
       }
     }
   }

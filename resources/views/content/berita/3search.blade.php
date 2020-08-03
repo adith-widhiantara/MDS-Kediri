@@ -16,30 +16,34 @@
       Cari Berita
     </button>
     <div class="row">
-      {{--
-        @auth
-        --}}
+      @auth
         @if(URL::current() != route('create.berita'))
-          <div class="col-6">
+          <div class="
+          @if(URL::current() != route('mine.berita'))
+          col-6
+          @else
+          col-12
+          @endif
+          ">
             <a href="{{ route('create.berita') }}" class="genric-btn primary-border">
               Tambah Berita
             </a>
           </div>
         @endif
-        <div class="
-        @if(URL::current() != route('create.berita'))
-        col-6
-        @else
-        col-12
+        @if(URL::current() != route('mine.berita'))
+          <div class="
+          @if(URL::current() != route('create.berita'))
+          col-6
+          @else
+          col-12
+          @endif
+          ">
+            <a href="{{ route('mine.berita') }}" class="genric-btn primary-border">
+              Berita Saya
+            </a>
+          </div>
         @endif
-        ">
-          <a href="" class="genric-btn primary-border">
-            Berita Saya
-          </a>
-        </div>
-        {{--
-          @endauth
-          --}}
+      @endauth
     </div>
   </form>
 </aside>

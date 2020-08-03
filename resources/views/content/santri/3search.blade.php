@@ -16,30 +16,34 @@
       Cari Testimoni
     </button>
     <div class="row">
-      {{--
-        @auth
-        --}}
+      @auth
         @if(URL::current() != route('create.santri'))
-          <div class="col-6">
+          <div class="
+          @if(URL::current() != route('mine.santri'))
+          col-6
+          @else
+          col-12
+          @endif
+          ">
             <a href="{{ route('create.santri') }}" class="genric-btn primary-border">
               Buat Testimoni
             </a>
           </div>
         @endif
-        <div class="
-        @if(URL::current() != route('create.santri'))
-        col-6
-        @else
-        col-12
+        @if(URL::current() != route('mine.santri'))
+          <div class="
+          @if(URL::current() != route('create.santri'))
+          col-6
+          @else
+          col-12
+          @endif
+          ">
+            <a href="{{ route('mine.santri') }}" class="genric-btn primary-border">
+              Testimoni Saya
+            </a>
+          </div>
         @endif
-        ">
-          <a href="" class="genric-btn primary-border">
-            Testimoni Saya
-          </a>
-        </div>
-        {{--
-          @endauth
-          --}}
+      @endauth
     </div>
   </form>
 </aside>

@@ -16,9 +16,7 @@
       Cari Video
     </button>
     <div class="row">
-      {{--
-        @auth
-        --}}
+      @auth
         @if(URL::current() != route('create.video'))
           <div class="col-6">
             <a href="{{ route('create.video') }}" class="genric-btn primary-border">
@@ -33,13 +31,11 @@
         col-12
         @endif
         ">
-          <a href="" class="genric-btn primary-border">
+          <a href="{{ route('mine.video') }}" class="genric-btn primary-border">
             Video Saya
           </a>
         </div>
-        {{--
-          @endauth
-          --}}
+      @endauth
     </div>
   </form>
 </aside>

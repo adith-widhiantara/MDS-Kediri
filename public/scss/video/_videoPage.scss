@@ -1,5 +1,17 @@
 .videoPage{
+  .text{
+    h1{
+      text-transform: capitalize;
+      color: $green900;
+    }
+  }
+  
   .banner{
+    .col-xl-3,
+    .col-lg-3{
+      margin-top: 30px;
+    }
+
     .banner-vid-img{
       position: relative;
       img{
@@ -102,6 +114,22 @@
                 opacity: 1;
                 visibility: visible;
             }
+        }
+      }
+    }
+    .statusText{
+      p{
+        text-align: center;
+        .redText{
+          color: $red800;
+          text-transform: capitalize;
+        }
+        .yellowText{
+          color: $yellow500;
+          text-transform: capitalize;
+        }
+        .greenText{
+          color: $green900;
         }
       }
     }

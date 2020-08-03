@@ -13,8 +13,6 @@
     <textarea name="caption" class="single-textarea" placeholder="Isi Berita" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Isi Berita'" required></textarea>
     <input type="hidden" id="waktuUpload" name="waktu">
     <input type="hidden" id="waktuUploadBulan" name="bulan">
-    <input type="hidden" name="user_id" value="5">
-    <input type="hidden" name="user_nama" value="Aditya Saktyawan WWW">
   </div>
 
   <div class="mt-10">

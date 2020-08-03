@@ -1,73 +1,58 @@
-@extends('layouts.app')
+@extends('base.base')
+
+@section('title', 'Masuk | MDS Kediri')
 
 @section('content')
-<div class="container">
+<div class="login-form-area">
+  <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
+      <div class="col-xl-7 col-lg-8">
+        <div class="login-form">
+          <!-- Login Heading -->
+          <div class="login-heading">
+            <span>Masuk</span>
+            <p>Masuk website MDS Kediri</p>
+            @if (session('error'))
+              <div class="alert alert-warning" role="alert">
+                Username dan Password tidak benar. Silakan daftar <a href="{{ route('register') }}" class="alert-link">disini</a> apabila belum daftar
+              </div>
+            @elseif (session('role'))
+              <div class="alert alert-warning" role="alert">
+                Akun anda belum diverivikasi
+              </div>
+            @elseif (session('acc'))
+              <div class="alert alert-success" role="alert">
+                Tunggu akun anda untuk diverivikasi
+              </div>
+            @endif
+          </div>
+          <!-- Single Input Fields -->
+          <form class="" action="{{ route('login') }}" method="post">
+            @csrf
+            <div class="input-box">
+              <div class="single-input-fields">
+                <label>Masukkan Username</label>
+                <input type="text" placeholder="Masukkan Username" name="username" value="{{ old('username') }}">
+              </div>
+              <div class="single-input-fields">
+                <label>Masukkan Password</label>
+                <input type="password" placeholder="Masukkan Password" name="password">
+              </div>
+              <!-- <div class="single-input-fields login-check">
+                <input type="checkbox" id="fruit1" name="keep-log">
+                <label for="fruit1">Keep me logged in</label>
+                <a href="#" class="f-right">Forgot Password?</a>
+              </div> -->
             </div>
+            <!-- form Footer -->
+            <div class="login-footer">
+              <p>Belum punya akun? <a href="{{ route('register') }}">daftar</a>  disini</p>
+              <button type="submit" class="submit">Masuk</button>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 @endsection

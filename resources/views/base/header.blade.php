@@ -30,7 +30,18 @@
                 <ul>
                   <li><a href="#">Tentang Kami</a></li>
                   <li><a href="#">Hubungi</a></li>
-                  <li><a href="#">Masuk</a></li>
+                  @guest
+                    <li><a href="{{ route('login') }}">Masuk</a></li>
+                  @else
+                    <li>
+                      <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Keluar
+                      </a>
+                    </li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                  @endguest
                 </ul>
                 <!-- Social -->
                 <div class="header-social">
@@ -47,25 +58,30 @@
         <div class="container-fluid">
           <div class="row align-items-center">
             <div class="col-12">
-            <!-- logo 2 -->
-            <div class="logo2">
-              <a href="#"><img class="img-logo" src="{{ asset('img/podLogo.png') }}" alt=""></a>
-            </div>
-            <!-- logo 3 -->
-            <div class="logo3 d-block d-sm-none">
-              <a href="#"><img class="img-logo" src="{{ asset('img/podLogo.png') }}" alt=""></a>
-            </div>
+              <!-- logo 2 -->
+              <div class="logo2">
+                <a href="#"><img class="img-logo" src="{{ asset('img/podLogo.png') }}" alt=""></a>
+              </div>
+              <!-- logo 3 -->
+              <div class="logo3 d-block d-sm-none">
+                <a href="#"><img class="img-logo" src="{{ asset('img/podLogo.png') }}" alt=""></a>
+              </div>
                 <!-- Main-menu -->
-            <div class="main-menu text-center d-none d-lg-block">
-              <nav>
-                <ul id="navigation">
-                  <li><a href="{{ route('index.galeri') }}">Galeri</a></li>
-                  <li><a href="{{ route('index.berita') }}">Berita</a></li>
-                  <li><a href="{{ route('index.santri') }}">Testimoni</a></li>
-                  <li><a href="{{ route('index.video') }}">Video</a></li>
-                </ul>
-              </nav>
-            </div>
+              <div class="main-menu text-center d-none d-lg-block">
+                <nav>
+                  <ul id="navigation">
+                    <li><a href="{{ route('index.galeri') }}">Galeri</a></li>
+                    <li><a href="{{ route('index.berita') }}">Berita</a></li>
+                    <li><a href="{{ route('index.santri') }}">Testimoni</a></li>
+                    <li><a href="{{ route('index.video') }}">Video</a></li>
+                  </ul>
+                </nav>
+              </div>
+              @if( session('success') )
+                <div style="text-align:center" class="alert alert-success" role="alert">
+                  Assalamualaikum {{ Auth::user()->namalengkap }}, selamat datang di website MDS Kediri.
+                </div>
+              @endif
             </div>
             <!-- Mobile Menu -->
             <div class="col-12">
