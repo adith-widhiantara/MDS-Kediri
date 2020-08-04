@@ -128,6 +128,55 @@ class VideoController extends Controller
       }
     }
 
+    public function all(){
+      if (Auth::check()) {
+        if (Auth::user()->hakAkses > 1) {
+          $video = Video::orderBy('id', 'desc')
+                            ->paginate(9);
+          return view('content.video.all.0index', compact(
+                                                            'video',
+                                                          ));
+        } else {
+          return redirect()->route('index.video');
+        }
+      } else {
+        return redirect()->route('login');
+      }
+    }
+
+    public function allDetail($caption){
+      if (Auth::check()) {
+        if (Auth::user()->hakAkses > 1) {
+          $video = Video::where('caption', $caption)
+                            ->firstOrFail();
+
+          return view('content.video.all.3detail', compact(
+                                                            'video',
+                                                          ));
+        } else {
+          return redirect()->route('index.video');
+        }
+      } else {
+        return redirect()->route('login');
+      }
+    }
+
+    public function allDetailStoreSetuju(Request $request, $caption){
+      Video::where('caption', $caption)
+              ->update(
+                ['status' => 2]
+              );
+      return redirect()->route('all.video')->with('acc', 'Video Berhasil Disetujui');
+    }
+
+    public function allDetailStoreTidakSetuju(Request $request, $caption){
+      Video::where('caption', $caption)
+              ->update(
+                ['status' => 3]
+              );
+      return redirect()->route('all.video')->with('tidakAcc', 'Video Berhasil Tidak Disetujui');
+    }
+
     /**
      * Display the specified resource.
      *

@@ -1,0 +1,44 @@
+.accPage{
+  .indexAcc{
+    .leftScreen{
+      .img-profile{
+        width: 100px;
+        img{
+          height: 100px;
+          width: 100px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+      .text-profile{
+        p{
+          text-align: center;
+          text-transform: capitalize;
+          &:first-child{
+            font-size: 30px;
+          }
+        }
+
+        .editProfileBtn{
+          display: flex;
+          justify-content: center;
+        }
+
+        .editProfile {
+            color: $white;
+            background: $green900;
+            border: 1px solid transparent;
+            border-radius: 3px;
+            &:hover {
+                color: $green900;
+                border: 1px solid $green900;
+                background: $white;
+            }
+        }
+      }
+    }
+    .rightScreen{
+
+    }
+  }
+}

@@ -1,0 +1,30 @@
+.errorHandling{
+  h1{
+    text-align: center;
+    color: $black;
+    text-transform: capitalize;
+  }
+  h3{
+    text-align: center;
+    color: $green900;
+    text-transform: capitalize;
+    a{
+      &:hover{
+        color: $yellow500;
+      }
+    }
+  }
+  .genric-btn{
+    text-align: center;
+    &.errorBtn {
+        color: $white;
+        background: $green900;
+        border: 1px solid transparent;
+        &:hover {
+            color: $green900;
+            border: 1px solid $green900;
+            background: $white;
+        }
+    }
+  }
+}

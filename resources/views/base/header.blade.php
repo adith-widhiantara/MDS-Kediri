@@ -74,6 +74,21 @@
                     <li><a href="{{ route('index.berita') }}">Berita</a></li>
                     <li><a href="{{ route('index.santri') }}">Testimoni</a></li>
                     <li><a href="{{ route('index.video') }}">Video</a></li>
+                    @auth
+                      <li><a href="{{ route('index.auth') }}">Profil Saya</a></li>
+                    @endauth
+                    <li class="loginli">
+                      @guest
+                        <a href="{{ route('login') }}">Masuk</a>
+                      @else
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                          Keluar
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                      @endguest
+                    </li>
                   </ul>
                 </nav>
               </div>

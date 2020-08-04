@@ -117,7 +117,13 @@ class GaleriController extends Controller
     public function show($judul)
     {
       $galeri = Galeri::where('judul', $judul)
-                ->first();
+                ->firstOrFail();
+
+      $galeriNotFound = Galeri::orderBy('id', 'desc')
+                        ->where('status', 2)
+                        ->take(3)
+                        ->get();
+
       $postTerakhir = Berita::where('status', 2)
                 ->orderBy('id', 'desc')
                 ->take(1)
@@ -141,16 +147,31 @@ class GaleriController extends Controller
                   ->take(4)
                   ->get();
 
-      return view('content.galeri.detail.0index', compact(
-                                                          'galeri',
-                                                          'postTerakhir',
-                                                          'santriTerakhir',
-                                                          'countBerita',
-                                                          'countGaleri',
-                                                          'countSantri',
-                                                          'countVideo',
-                                                          'recentBerita',
-                                                        ));
+
+        if ($galeri->status == 2) {
+          return view('content.galeri.detail.0index', compact(
+                                                              'galeri',
+                                                              'postTerakhir',
+                                                              'santriTerakhir',
+                                                              'countBerita',
+                                                              'countGaleri',
+                                                              'countSantri',
+                                                              'countVideo',
+                                                              'recentBerita',
+                                                            ));
+        } else {
+          return view('content.galeri.notFound.0index',compact(
+                                                              'galeriNotFound',
+                                                              'countBerita',
+                                                              'countGaleri',
+                                                              'countSantri',
+                                                              'countVideo',
+                                                              'recentBerita',
+                                                            ));
+        }
+
+
+
     }
 
     public function mine(){
@@ -184,6 +205,88 @@ class GaleriController extends Controller
       } else {
         return redirect()->route('login');
       }
+    }
+
+    public function mineDetail($judul){
+      if (Auth::check()) {
+        $user_id = Auth::id();
+        $galeri = Galeri::where('judul', $judul)
+                  ->first();
+        $user_id_galeri = $galeri->user_id;
+
+        $countBerita = Berita::where('status', 2)
+                    ->count();
+        $countGaleri = Galeri::where('status', 2)
+                    ->count();
+        $countSantri = Santri::where('status', 2)
+                    ->count();
+        $countVideo = Video::where('status', 2)
+                    ->count();
+
+        if ($user_id_galeri == $user_id) {
+          return view('content.galeri.mine.3detail',compact(
+                                                              'galeri',
+                                                              'countBerita',
+                                                              'countGaleri',
+                                                              'countSantri',
+                                                              'countVideo',
+                                                            ));
+        } else {
+          return redirect()->route('index.galeri');
+        }
+
+      } else {
+        return redirect()->route('login');
+      }
+    }
+
+    public function all(){
+      if (Auth::check()) {
+        if (Auth::user()->hakAkses > 1) {
+          $galeri = Galeri::orderBy('id', 'desc')
+                            ->paginate(9);
+          return view('content.galeri.allGaleri.0index', compact(
+                                                                'galeri',
+                                                              ));
+        } else {
+          return redirect()->route('index.galeri');
+        }
+      } else {
+        return redirect()->route('login');
+      }
+    }
+
+    public function allDetail($judul){
+      if (Auth::check()) {
+        if (Auth::user()->hakAkses > 1) {
+          $galeri = Galeri::where('judul', $judul)
+                            ->firstOrFail();
+
+          return view('content.galeri.allGaleri.3detail', compact(
+                                                                'galeri',
+                                                              ));
+        } else {
+          return redirect()->route('index.galeri');
+        }
+      } else {
+        return redirect()->route('login');
+      }
+    }
+
+    public function allDetailStoreSetuju(Request $request, $judul){
+      Galeri::where('judul', $judul)
+              ->update(
+                ['status' => 2]
+              );
+      return redirect()->route('allNews.galeri', $judul)->with('acc', 'Galeri Berhasil Disetujui');
+    }
+
+    public function allDetailStoreTidakSetuju(Request $request, $judul){
+      Galeri::where('judul', $judul)
+              ->update(
+                ['status' => 3]
+              );
+      return redirect()->route('allNews.galeri', $judul)->with('tidakAcc', 'Galeri Berhasil Tidak Disetujui');
     }
 
     /**

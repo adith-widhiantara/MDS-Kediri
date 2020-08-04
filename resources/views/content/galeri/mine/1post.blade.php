@@ -20,7 +20,13 @@
               <span class="redText">ditolak</span>
             @endif
           </p>
-          <a href="{{ route('detail.galeri', $gal->judul) }}" class="genric-btn kunjungiBtn">
+          <a href="
+          @if( $gal -> status == 1 || $gal -> status == 3 )
+            {{ route('mine.detail.galeri', $gal->judul) }}
+          @elseif( $gal -> status == 2 )
+            {{ route('detail.galeri', $gal->judul) }}
+          @endif
+          " class="genric-btn kunjungiBtn">
             Kunjungi Foto
           </a>
         </div>

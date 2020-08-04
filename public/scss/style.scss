@@ -58,6 +58,8 @@
 
 // inner Page
 
+// acc Page
+	@import 'acc/acc';
 
 // Default Element Page
 	@import 'blog_page';
@@ -65,3 +67,6 @@
 	@import 'bradcam';
 	@import 'extend';
 	@import 'elements';
+
+// error
+	@import 'error/error';

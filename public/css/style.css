@@ -2249,6 +2249,12 @@ hr {
     display: inline-block;
     position: relative;
     z-index: 1; }
+    @media only screen and (min-width: 1200px) and (max-width: 1600px) {
+      .header-bottom .main-menu ul li.loginli {
+        display: none; } }
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+      .header-bottom .main-menu ul li.loginli {
+        display: none; } }
     .header-bottom .main-menu ul li a {
       font-size: 16px;
       color: #000000;
@@ -3335,6 +3341,10 @@ form.search-box {
 .indexBerita .blog_left_sidebar .text h1 {
   text-transform: capitalize;
   color: #1B5E20; }
+.indexBerita .blog_left_sidebar .notFound h1, .indexBerita .blog_left_sidebar .notFound p {
+  text-transform: capitalize; }
+.indexBerita .blog_left_sidebar .notFound h1 {
+  color: #1B5E20; }
 .indexBerita .blog_left_sidebar .col-xl-4,
 .indexBerita .blog_left_sidebar .col-lg-4 {
   margin-top: 30px; }
@@ -3345,7 +3355,8 @@ form.search-box {
   color: #1B5E20;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; }
+  text-overflow: ellipsis;
+  text-transform: capitalize; }
   @media only screen and (min-width: 1200px) and (max-width: 1600px) {
     .indexBerita .blog_left_sidebar .card-body .card-title {
       font-size: 20px; } }
@@ -3385,6 +3396,97 @@ form.search-box {
     .indexBerita .blog_left_sidebar .card-body .genric-btn.kunjungiBtn:hover {
       color: #ffffff;
       background: #1B5E20;
+      border: 1px solid transparent; }
+
+.detailMineBerita .statusText {
+  text-transform: capitalize; }
+  .detailMineBerita .statusText .redText {
+    color: #d50000; }
+  .detailMineBerita .statusText .yellowText {
+    color: #F9A825; }
+  .detailMineBerita .statusText .greenText {
+    color: #1B5E20; }
+
+.allNews .card .card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; }
+.allNews .card .card-body .card-title {
+  color: #1B5E20;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+  @media only screen and (min-width: 1200px) and (max-width: 1600px) {
+    .allNews .card .card-body .card-title {
+      font-size: 20px; } }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .allNews .card .card-body .card-title {
+      font-size: 16px; } }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .allNews .card .card-body .card-title {
+      font-size: 16px; } }
+  @media only screen and (min-width: 576px) and (max-width: 767px) {
+    .allNews .card .card-body .card-title {
+      font-size: 16px; } }
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .allNews .card .card-body .card-text {
+    font-size: 15px; } }
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .allNews .card .card-body .card-text {
+    font-size: 14px; } }
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .allNews .card .card-body .card-text {
+    font-size: 12px; } }
+.allNews .card .card-body .statusText {
+  text-align: center;
+  font-weight: bold; }
+  .allNews .card .card-body .statusText .redText {
+    color: #d50000; }
+  .allNews .card .card-body .statusText .greenText {
+    color: #1B5E20; }
+  .allNews .card .card-body .statusText .yellowText {
+    color: #F9A825; }
+.allNews .card .kunjungiBtn {
+  color: #ffffff;
+  background: #1B5E20;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  display: block; }
+  .allNews .card .kunjungiBtn:hover {
+    color: #1B5E20;
+    border: 1px solid #1B5E20;
+    background: #ffffff; }
+.allNews .single-post .feature-img img {
+  width: 50%; }
+.allNews .single-post .statusText {
+  text-transform: capitalize;
+  font-weight: bold; }
+  .allNews .single-post .statusText .redText {
+    color: #d50000; }
+  .allNews .single-post .statusText .yellowText {
+    color: #F9A825; }
+  .allNews .single-post .statusText .greenText {
+    color: #1B5E20; }
+.allNews .single-post .row .genric-btn {
+  text-transform: capitalize; }
+  .allNews .single-post .row .genric-btn.setuju {
+    color: #1B5E20;
+    border: 1px solid #1B5E20;
+    background: #ffffff;
+    border-radius: 3px; }
+    .allNews .single-post .row .genric-btn.setuju:hover {
+      color: #ffffff;
+      background: #1B5E20;
+      border: 1px solid transparent; }
+  .allNews .single-post .row .genric-btn.tidakSetuju {
+    float: right;
+    color: #d50000;
+    border: 1px solid #d50000;
+    background: #ffffff;
+    border-radius: 3px; }
+    .allNews .single-post .row .genric-btn.tidakSetuju:hover {
+      color: #ffffff;
+      background: #d50000;
       border: 1px solid transparent; }
 
 .santriIndex .blog_left_sidebar .text h1 {
@@ -4162,6 +4264,31 @@ input:focus::-webkit-input-placeholder {
 
 .header-bottom2 {
   border: 0; }
+
+.accPage .indexAcc .leftScreen .img-profile {
+  width: 100px; }
+  .accPage .indexAcc .leftScreen .img-profile img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    object-fit: cover; }
+.accPage .indexAcc .leftScreen .text-profile p {
+  text-align: center;
+  text-transform: capitalize; }
+  .accPage .indexAcc .leftScreen .text-profile p:first-child {
+    font-size: 30px; }
+.accPage .indexAcc .leftScreen .text-profile .editProfileBtn {
+  display: flex;
+  justify-content: center; }
+.accPage .indexAcc .leftScreen .text-profile .editProfile {
+  color: #ffffff;
+  background: #1B5E20;
+  border: 1px solid transparent;
+  border-radius: 3px; }
+  .accPage .indexAcc .leftScreen .text-profile .editProfile:hover {
+    color: #1B5E20;
+    border: 1px solid #1B5E20;
+    background: #ffffff; }
 
 .home-blog-area .home-blog-single {
   -webkit-transition: 0.4s;
@@ -6252,5 +6379,26 @@ del {
 
 .switch-wrap {
   margin-bottom: 10px; }
+
+.errorHandling h1 {
+  text-align: center;
+  color: #000;
+  text-transform: capitalize; }
+.errorHandling h3 {
+  text-align: center;
+  color: #1B5E20;
+  text-transform: capitalize; }
+  .errorHandling h3 a:hover {
+    color: #F9A825; }
+.errorHandling .genric-btn {
+  text-align: center; }
+  .errorHandling .genric-btn.errorBtn {
+    color: #fff;
+    background: #1B5E20;
+    border: 1px solid transparent; }
+    .errorHandling .genric-btn.errorBtn:hover {
+      color: #1B5E20;
+      border: 1px solid #1B5E20;
+      background: #fff; }
 
 /*# sourceMappingURL=style.css.map */

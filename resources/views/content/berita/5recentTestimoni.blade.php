@@ -4,7 +4,7 @@
     <div class="media post_item">
       <img src="{{ asset('img/santri/'.$san -> sampul) }}" alt="post">
       <div class="media-body">
-        <a href="">
+        <a href="{{ route('detail.santri',$san -> judul) }}">
           <h3 class="recentSantri" style="color: #2d2d2d;">{{ $san -> judul }}</h3>
         </a>
         <p>{{ $san -> waktu }}</p>

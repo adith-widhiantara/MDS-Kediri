@@ -44,6 +44,55 @@ class BeritaController extends Controller
                                                     ));
     }
 
+    public function allNews(){
+      if (Auth::check()) {
+        if (Auth::user()->hakAkses > 1) {
+          $berita = Berita::orderBy('id', 'desc')
+                            ->paginate(9);
+          return view('content.berita.allNews.0index', compact(
+                                                                'berita',
+                                                              ));
+        } else {
+          return redirect()->route('index.berita');
+        }
+      } else {
+        return redirect()->route('login');
+      }
+    }
+
+    public function allNewsDetail($judul){
+      if (Auth::check()) {
+        if (Auth::user()->hakAkses > 1) {
+          $berita = Berita::where('judul', $judul)
+                            ->firstOrFail();
+
+          return view('content.berita.allNews.3detail', compact(
+                                                                'berita',
+                                                              ));
+        } else {
+          return redirect()->route('index.berita');
+        }
+      } else {
+        return redirect()->route('login');
+      }
+    }
+
+    public function allNewsDetailStoreSetuju(Request $request, $judul){
+      Berita::where('judul', $judul)
+              ->update(
+                ['status' => 2]
+              );
+      return redirect()->route('allNews.berita', $judul)->with('acc', 'Berita Berhasil Disetujui');
+    }
+
+    public function allNewsDetailStoreTidakSetuju(Request $request, $judul){
+      Berita::where('judul', $judul)
+              ->update(
+                ['status' => 3]
+              );
+      return redirect()->route('allNews.berita', $judul)->with('tidakAcc', 'Berita Berhasil Tidak Disetujui');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -116,7 +165,12 @@ class BeritaController extends Controller
     public function show($berita)
     {
       $berita = Berita::where('judul', $berita)
-                ->first();
+                ->firstOrFail();
+
+      $beritaNotFound = Berita::orderBy('id', 'desc')
+                        ->where('status', 2)
+                        ->take(3)
+                        ->get();
 
       $postTerakhir = Santri::where('status', 2)
                 ->orderBy('id', 'desc')
@@ -140,16 +194,29 @@ class BeritaController extends Controller
                   ->orderBy('id', 'desc')
                   ->take(4)
                   ->get();
-      return view('content.berita.detail.0detail', compact(
-                                                  'berita',
-                                                  'postTerakhir',
-                                                  'galeriTerakhir',
-                                                  'countBerita',
-                                                  'countGaleri',
-                                                  'countSantri',
-                                                  'countVideo',
-                                                  'recentSantri',
-                                                  ));
+
+      if ($berita->status == 2) {
+        return view('content.berita.detail.0detail', compact(
+                                                            'berita',
+                                                            'postTerakhir',
+                                                            'galeriTerakhir',
+                                                            'countBerita',
+                                                            'countGaleri',
+                                                            'countSantri',
+                                                            'countVideo',
+                                                            'recentSantri',
+                                                          ));
+      } else {
+        return view('content.berita.notFound.0index',compact(
+                                                            'beritaNotFound',
+                                                            'countBerita',
+                                                            'countGaleri',
+                                                            'countSantri',
+                                                            'countVideo',
+                                                            'recentSantri',
+                                                          ));
+      }
+
     }
 
     public function mine(){
@@ -181,6 +248,39 @@ class BeritaController extends Controller
                                                         'countVideo',
                                                         'recentSantri',
                                                         ));
+      } else {
+        return redirect()->route('login');
+      }
+    }
+
+    public function mineDetail($judul){
+      if (Auth::check()) {
+        $user_id = Auth::id();
+        $berita = Berita::where('judul', $judul)
+                  ->first();
+        $user_id_berita = $berita->user_id;
+
+        $countBerita = Berita::where('status', 2)
+                    ->count();
+        $countGaleri = Galeri::where('status', 2)
+                    ->count();
+        $countSantri = Santri::where('status', 2)
+                    ->count();
+        $countVideo = Video::where('status', 2)
+                    ->count();
+
+        if ($user_id_berita == $user_id) {
+          return view('content.berita.mine.3detail',compact(
+                                                              'berita',
+                                                              'countBerita',
+                                                              'countGaleri',
+                                                              'countSantri',
+                                                              'countVideo',
+                                                            ));
+        } else {
+          return redirect()->route('index.berita');
+        }
+
       } else {
         return redirect()->route('login');
       }

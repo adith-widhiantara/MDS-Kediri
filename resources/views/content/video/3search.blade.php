@@ -35,6 +35,13 @@
             Video Saya
           </a>
         </div>
+        @if( Auth::user()->hakAkses > 1 )
+          <div class="col-12">
+            <a class="genric-btn primary-border" href="{{ route('all.video') }}">
+              Lihat Semua Video
+            </a>
+          </div>
+        @endif
       @endauth
     </div>
   </form>

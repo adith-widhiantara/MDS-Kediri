@@ -157,6 +157,14 @@
     .main-menu{
         ul{
             li{
+              &.loginli{
+                @media #{$laptop}{
+                  display: none;
+                }
+                @media #{$lg}{
+                  display: none;
+                }
+              }
                 display: inline-block;
                 position: relative;
                 z-index: 1;

@@ -45,6 +45,18 @@
                       <li><a href="{{ route('index.berita') }}">Berita</a></li>
                       <li><a href="{{ route('index.santri') }}">Testimoni</a></li>
                       <li><a href="{{ route('index.video') }}">Video</a></li>
+                      @guest
+                        <li><a href="{{ route('login') }}">Masuk</a></li>
+                      @else
+                        <li>
+                          <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Keluar
+                          </a>
+                        </li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                      @endguest
                     </ul>
                   </nav>
                 </div>

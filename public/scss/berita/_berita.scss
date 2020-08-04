@@ -7,6 +7,15 @@
       }
     }
 
+    .notFound{
+      h1,p{
+        text-transform: capitalize;
+      }
+      h1{
+        color: $green900
+      }
+    }
+
     .col-xl-4,
     .col-lg-4{
       margin-top: 30px;
@@ -35,6 +44,7 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        text-transform: capitalize;
       }
 
       .card-text{
@@ -78,6 +88,145 @@
                 background: $green900;
                 border: 1px solid transparent;
             }
+        }
+      }
+    }
+  }
+}
+
+.detailMineBerita{
+  .statusText{
+    text-transform: capitalize;
+    .redText{
+      color: $red800;
+    }
+    .yellowText{
+      color: $yellow500;
+    }
+    .greenText{
+      color: $green900;
+    }
+  }
+}
+
+.allNews{
+  .card{
+    .card-img-top{
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-body{
+      .card-title{
+        @media #{$laptop}{
+          font-size: 20px;
+        }
+        @media #{$lg}{
+          font-size: 16px;
+        }
+        @media #{$md}{
+          font-size: 16px;
+        }
+        @media #{$sm}{
+          font-size: 16px;
+        }
+        color: $green900;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .card-text{
+        @media #{$laptop}{
+
+        }
+        @media #{$lg}{
+          font-size: 15px;
+        }
+        @media #{$md}{
+          font-size: 14px;
+        }
+        @media #{$sm}{
+          font-size: 12px;
+        }
+      }
+
+      .statusText{
+        text-align: center;
+        font-weight: bold;
+        .redText{
+          color: $red800;
+        }
+        .greenText{
+          color: $green900;
+        }
+        .yellowText{
+          color: $yellow500;
+        }
+      }
+    }
+
+    .kunjungiBtn{
+      color: $white;
+      background: $green900;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      display: block;
+      &:hover {
+          color: $green900;
+          border: 1px solid $green900;
+          background: $white;
+      }
+    }
+  }
+
+  .single-post{
+    .feature-img{
+      img{
+        width: 50%;
+      }
+    }
+
+    .statusText{
+      text-transform: capitalize;
+      font-weight: bold;
+      .redText{
+        color: $red800;
+      }
+      .yellowText{
+        color: $yellow500;
+      }
+      .greenText{
+        color: $green900;
+      }
+    }
+
+    .row{
+      .genric-btn{
+        text-transform: capitalize;
+        &.setuju{
+          color: $green900;
+          border: 1px solid $green900;
+          background: $white;
+          border-radius: 3px;
+          &:hover {
+              color: $white;
+              background: $green900;
+              border: 1px solid transparent;
+          }
+        }
+        &.tidakSetuju{
+          float: right;
+          color: $red800;
+          border: 1px solid $red800;
+          background: $white;
+          border-radius: 3px;
+          &:hover {
+              color: $white;
+              background: $red800;
+              border: 1px solid transparent;
+          }
         }
       }
     }

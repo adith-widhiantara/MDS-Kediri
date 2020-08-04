@@ -63,11 +63,11 @@ class SantriController extends Controller
         ->count();
 
         return view('content.santri.create.0index', compact(
-          'countBerita',
-          'countGaleri',
-          'countSantri',
-          'countVideo',
-        ));
+                                                            'countBerita',
+                                                            'countGaleri',
+                                                            'countSantri',
+                                                            'countVideo',
+                                                          ));
       } else {
         return redirect()->route('login');
       }
@@ -116,7 +116,12 @@ class SantriController extends Controller
     public function show($judul)
     {
       $santri = Santri::where('judul', $judul)
-                ->first();
+                ->firstOrFail();
+
+      $santriNotFound = Santri::orderBy('id', 'desc')
+                        ->where('status', 2)
+                        ->take(3)
+                        ->get();
 
       $postTerakhir = Berita::where('status', 2)
                 ->orderBy('id', 'desc')
@@ -140,16 +145,28 @@ class SantriController extends Controller
                   ->orderBy('id', 'desc')
                   ->take(4)
                   ->get();
-      return view('content.santri.detail.0detail', compact(
-                                                  'santri',
-                                                  'postTerakhir',
-                                                  'galeriTerakhir',
-                                                  'countBerita',
-                                                  'countGaleri',
-                                                  'countSantri',
-                                                  'countVideo',
-                                                  'recentBerita',
-                                                  ));
+
+      if ($santri->status == 2) {
+        return view('content.santri.detail.0detail', compact(
+                                                    'santri',
+                                                    'postTerakhir',
+                                                    'galeriTerakhir',
+                                                    'countBerita',
+                                                    'countGaleri',
+                                                    'countSantri',
+                                                    'countVideo',
+                                                    'recentBerita',
+                                                    ));
+      } else {
+        return view('content.santri.notFound.0index',compact(
+                                                            'santriNotFound',
+                                                            'countBerita',
+                                                            'countGaleri',
+                                                            'countSantri',
+                                                            'countVideo',
+                                                            'recentBerita',
+                                                          ));
+      }
     }
 
     public function mine(){
@@ -183,6 +200,88 @@ class SantriController extends Controller
       } else {
         return redirect()->route('login');
       }
+    }
+
+    public function mineDetail($judul){
+      if (Auth::check()) {
+        $user_id = Auth::id();
+        $santri = Santri::where('judul', $judul)
+                  ->first();
+        $user_id_santri = $santri->user_id;
+
+        $countBerita = Berita::where('status', 2)
+                    ->count();
+        $countGaleri = Galeri::where('status', 2)
+                    ->count();
+        $countSantri = Santri::where('status', 2)
+                    ->count();
+        $countVideo = Video::where('status', 2)
+                    ->count();
+
+        if ($user_id_santri == $user_id) {
+          return view('content.santri.mine.3detail',compact(
+                                                              'santri',
+                                                              'countBerita',
+                                                              'countGaleri',
+                                                              'countSantri',
+                                                              'countVideo',
+                                                            ));
+        } else {
+          return redirect()->route('index.santri');
+        }
+
+      } else {
+        return redirect()->route('login');
+      }
+    }
+
+    public function all(){
+      if (Auth::check()) {
+        if (Auth::user()->hakAkses > 1) {
+          $santri = Santri::orderBy('id', 'desc')
+                            ->paginate(9);
+          return view('content.santri.all.0index', compact(
+                                                                'santri',
+                                                              ));
+        } else {
+          return redirect()->route('index.santri');
+        }
+      } else {
+        return redirect()->route('login');
+      }
+    }
+
+    public function allDetail($judul){
+      if (Auth::check()) {
+        if (Auth::user()->hakAkses > 1) {
+          $santri = Santri::where('judul', $judul)
+                            ->firstOrFail();
+
+          return view('content.santri.all.3detail', compact(
+                                                            'santri',
+                                                          ));
+        } else {
+          return redirect()->route('index.santri');
+        }
+      } else {
+        return redirect()->route('login');
+      }
+    }
+
+    public function allDetailStoreSetuju(Request $request, $judul){
+      Santri::where('judul', $judul)
+              ->update(
+                ['status' => 2]
+              );
+      return redirect()->route('all.santri', $judul)->with('acc', 'Santri Berhasil Disetujui');
+    }
+
+    public function allDetailStoreTidakSetuju(Request $request, $judul){
+      Santri::where('judul', $judul)
+              ->update(
+                ['status' => 3]
+              );
+      return redirect()->route('all.santri', $judul)->with('tidakAcc', 'Santri Berhasil Tidak Disetujui');
     }
 
     /**

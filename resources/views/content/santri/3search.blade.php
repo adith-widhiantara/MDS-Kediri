@@ -43,6 +43,13 @@
             </a>
           </div>
         @endif
+        @if( Auth::user()->hakAkses > 1 )
+          <div class="col-12">
+            <a class="genric-btn primary-border" href="{{ route('all.santri') }}">
+              Lihat Semua Testimoni
+            </a>
+          </div>
+        @endif
       @endauth
     </div>
   </form>
