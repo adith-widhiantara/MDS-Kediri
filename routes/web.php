@@ -80,5 +80,11 @@ Route::prefix('video')->group(function () {
 // auth
 Route::prefix('myacc')->group(function () {
   Route::get('', 'AuthController@index')->name('index.auth');
+  Route::get('/acc', 'AuthController@acc')->name('acc.auth');
+  Route::post('/acc/aktif', 'AuthController@accAktif')->name('acc.aktif.auth');
+  Route::post('/acc/nonaktif', 'AuthController@accNonAktif')->name('acc.nonAktif.auth');
+  Route::get('/admin', 'AuthController@admin')->name('admin.auth');
+  Route::post('/admin/aktif', 'AuthController@adminAktif')->name('admin.aktif.auth');
+  Route::post('/admin/nonaktif', 'AuthController@adminNonAktif')->name('admin.nonAktif.auth');
 });
 // end auth

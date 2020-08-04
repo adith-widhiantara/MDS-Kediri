@@ -48,6 +48,9 @@
                       @guest
                         <li><a href="{{ route('login') }}">Masuk</a></li>
                       @else
+                        @if( Auth::user()->hakAkses > 1 )
+                          <li><a href="{{ route('acc.auth') }}">Akun Santri</a></li>
+                        @endif
                         <li>
                           <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             Keluar

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -15,10 +17,111 @@ class AuthController extends Controller
      {
          $this->middleware('auth');
      }
-     
+
     public function index()
     {
       return view('acc.0index');
+    }
+
+    public function acc(){
+      if (Auth::check()) {
+        if (Auth::user()->hakAkses > 1) {
+          $user = User::orderBy('id', 'desc')
+                      ->get();
+          return view('acc.1acc',compact(
+                                          'user',
+                                        ));
+        } else {
+          return redirect()->route('index.auth');
+        }
+      } else {
+        return redirect()->route('login');
+      }
+    }
+
+    public function accAktif(Request $request){
+      if (Auth::check()) {
+        if (Auth::user()->hakAkses > 1) {
+          $id = $request -> acc;
+          User::where('id', $id)
+                ->update([
+                  'role' => 2
+                ]);
+          return redirect()->route('acc.auth')->with('acc', 'Akun Berhasil Diaktifkan');
+        } else {
+          return redirect()->route('index.auth');
+        }
+      } else {
+        return redirect()->route('login');
+      }
+    }
+
+    public function accNonAktif(Request $request){
+      if (Auth::check()) {
+        if (Auth::user()->hakAkses > 1) {
+          $id = $request -> acc;
+          User::where('id', $id)
+                ->update([
+                  'role' => 1
+                ]);
+          return redirect()->route('acc.auth')->with('accNonAktif', 'Akun Berhasil Dinonaktifkan');
+        } else {
+          return redirect()->route('index.auth');
+        }
+      } else {
+        return redirect()->route('login');
+      }
+    }
+
+    public function admin(){
+      if (Auth::check()) {
+        if (Auth::user()->hakAkses > 2) {
+          $user = User::orderBy('id', 'desc')
+                      ->where('role', 2)
+                      ->get();
+          return view('acc.admin.0index',compact(
+                                                'user',
+                                              ));
+        } else {
+          return redirect()->route('index.auth');
+        }
+      } else {
+        return redirect()->route('login');
+      }
+    }
+
+    public function adminAktif(Request $request){
+      if (Auth::check()) {
+        if (Auth::user()->hakAkses > 2) {
+          $id = $request -> acc;
+          User::where('id', $id)
+                ->update([
+                  'hakAkses' => 2
+                ]);
+          return redirect()->route('admin.auth')->with('adminAktif', 'Admin Berhasil Diaktifkan');
+        } else {
+          return redirect()->route('index.auth');
+        }
+      } else {
+        return redirect()->route('login');
+      }
+    }
+
+    public function adminNonAktif(Request $request){
+      if (Auth::check()) {
+        if (Auth::user()->hakAkses > 2) {
+          $id = $request -> acc;
+          User::where('id', $id)
+                ->update([
+                  'hakAkses' => 1
+                ]);
+          return redirect()->route('admin.auth')->with('adminNonAktif', 'Admin Berhasil Dinonaktifkan');
+        } else {
+          return redirect()->route('index.auth');
+        }
+      } else {
+        return redirect()->route('login');
+      }
     }
 
     /**

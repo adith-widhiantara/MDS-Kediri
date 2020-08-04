@@ -4289,6 +4289,30 @@ input:focus::-webkit-input-placeholder {
     color: #1B5E20;
     border: 1px solid #1B5E20;
     background: #ffffff; }
+.accPage .yellowText {
+  color: #F9A825;
+  font-weight: bold; }
+.accPage .greenText {
+  color: #1B5E20;
+  font-weight: bold; }
+.accPage .genric-btn.aktif {
+  color: #ffffff;
+  background: #1B5E20;
+  border: 1px solid transparent;
+  border-radius: 3px; }
+  .accPage .genric-btn.aktif:hover {
+    color: #1B5E20;
+    border: 1px solid #1B5E20;
+    background: #ffffff; }
+.accPage .genric-btn.nonAktif {
+  color: #F9A825;
+  background: #ffffff;
+  border: 1px solid #F9A825;
+  border-radius: 3px; }
+  .accPage .genric-btn.nonAktif:hover {
+    color: #ffffff;
+    background: #F9A825;
+    border: 1px solid transparent; }
 
 .home-blog-area .home-blog-single {
   -webkit-transition: 0.4s;

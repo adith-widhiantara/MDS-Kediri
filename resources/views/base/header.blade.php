@@ -76,6 +76,12 @@
                     <li><a href="{{ route('index.video') }}">Video</a></li>
                     @auth
                       <li><a href="{{ route('index.auth') }}">Profil Saya</a></li>
+                      @if( Auth::user()->hakAkses > 1 )
+                        <li><a href="{{ route('acc.auth') }}">Akun Santri</a></li>
+                      @endif
+                      @if( Auth::user()->hakAkses > 2 )
+                        <li><a href="{{ route('admin.auth') }}">Admin Santri</a></li>
+                      @endif
                     @endauth
                     <li class="loginli">
                       @guest
