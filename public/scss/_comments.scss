@@ -16,6 +16,9 @@
         .comments-img{
             img {
                 margin-right: 32px;
+                height: 98px;
+                width: 98px;
+                object-fit: cover;
                 @media #{$md}{
                     margin-bottom: 20px;
                 }
@@ -43,7 +46,7 @@
             }
             a{
                 h4{
-                    color: #140C40;
+                    color: $green900;
                     font-size: 25px;
                     font-weight: 400;
                     @include transition(.4s);

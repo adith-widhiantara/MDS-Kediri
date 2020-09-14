@@ -207,7 +207,7 @@ del {
         border: 1px solid $green900;
         background: $white;
         &:hover {
-            color: $white;
+            color: $white !important;
             background: $green900;
             border: 1px solid transparent;
         }

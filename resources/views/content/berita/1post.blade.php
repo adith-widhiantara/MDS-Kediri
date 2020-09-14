@@ -8,14 +8,13 @@
       </a>
     </div>
     <div class="blog_details">
-      <a class="d-inline-block" href="{{ route('detail.berita', $ber -> judul) }}">
+      <a class="d-inline-block" href="{{ route('detail.berita', $ber -> id) }}">
         <h2 class="blog-head">
           {{ $ber -> judul }}
         </h2>
       </a>
       <p class="caption">
         {{ $ber -> caption }}
-        <!-- 157 char -->
       </p>
       <ul class="blog-info-link">
         <li><a href="#"><i class="fa fa-user"></i> {{ $ber -> user_nama }}</a></li>

@@ -14,11 +14,15 @@
             <p>Masuk website MDS Kediri</p>
             @if (session('error'))
               <div class="alert alert-warning" role="alert">
-                Username dan Password tidak benar. Silakan daftar <a href="{{ route('register') }}" class="alert-link">disini</a> apabila belum daftar
+                Username belum terdaftar. Silakan daftar <a href="{{ route('register') }}" class="alert-link">disini</a> apabila belum daftar
               </div>
-            @elseif (session('role'))
+            @elseif (session('belumAcc'))
               <div class="alert alert-warning" role="alert">
                 Akun anda belum diverivikasi
+              </div>
+            @elseif (session('passSalah'))
+              <div class="alert alert-warning" role="alert">
+                Password salah
               </div>
             @elseif (session('acc'))
               <div class="alert alert-success" role="alert">
@@ -38,11 +42,11 @@
                 <label>Masukkan Password</label>
                 <input type="password" placeholder="Masukkan Password" name="password">
               </div>
-              <!-- <div class="single-input-fields login-check">
-                <input type="checkbox" id="fruit1" name="keep-log">
-                <label for="fruit1">Keep me logged in</label>
-                <a href="#" class="f-right">Forgot Password?</a>
-              </div> -->
+              <div class="single-input-fields login-check">
+                <input type="checkbox" id="remember_token" name="remember_token" {{ old('remember_token') ? 'checked' : '' }}>
+                <label for="remember_token">Ingat Saya</label>
+                <!-- <a href="#" class="f-right">Forgot Password?</a> -->
+              </div>
             </div>
             <!-- form Footer -->
             <div class="login-footer">

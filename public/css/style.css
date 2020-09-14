@@ -459,7 +459,7 @@ hr {
   top: -7px; }
 
 .submit-btn2 {
-  background: #140C40;
+  background: #1B5E20;
   width: 100%;
   height: 60px;
   padding: 10px 20px;
@@ -1971,7 +1971,7 @@ hr {
 .small-tittle h2 {
   font-size: 20px;
   display: block;
-  color: #140C40;
+  color: #1B5E20;
   font-weight: 700;
   text-transform: capitalize;
   line-height: 1.4; }
@@ -3651,7 +3651,10 @@ form.search-box {
       -ms-flex-wrap: wrap;
       flex-wrap: wrap; } }
 .coments-area .single-comments .comments-img img {
-  margin-right: 32px; }
+  margin-right: 32px;
+  height: 98px;
+  width: 98px;
+  object-fit: cover; }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .coments-area .single-comments .comments-img img {
       margin-bottom: 20px; } }
@@ -3674,7 +3677,7 @@ form.search-box {
   margin-bottom: 17px;
   display: block; }
 .coments-area .single-comments .comments-tittle a h4 {
-  color: #140C40;
+  color: #1B5E20;
   font-size: 25px;
   font-weight: 400;
   -webkit-transition: 0.4s;
@@ -5675,7 +5678,7 @@ del {
     border: 1px solid #1B5E20;
     background: #fff; }
     .genric-btn.green900-border:hover {
-      color: #fff;
+      color: #fff !important;
       background: #1B5E20;
       border: 1px solid transparent; }
   .genric-btn.success {

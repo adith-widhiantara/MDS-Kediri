@@ -22,9 +22,9 @@
           </p>
           <a href="
           @if( $ber -> status == 1 || $ber -> status == 3 )
-            {{ route('mine.detail.berita', $ber->judul) }}
+            {{ route('mine.detail.berita', $ber->id) }}
           @elseif( $ber -> status == 2 )
-            {{ route('detail.berita', $ber->judul) }}
+            {{ route('detail.berita', $ber->id) }}
           @endif
           " class="genric-btn kunjungiBtn">
             Kunjungi Berita

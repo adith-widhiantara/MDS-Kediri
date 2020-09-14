@@ -18,8 +18,8 @@
             <span class="redText">Ditolak</span>
           @endif
         </p>
-        <a href="{{ route('allNews.detail.galeri', $gal->judul) }}" class="genric-btn kunjungiBtn">
-          Kunjungi Berita
+        <a href="{{ route('allNews.detail.galeri', $gal->id) }}" class="genric-btn kunjungiBtn">
+          Kunjungi Galeri
         </a>
       </div>
     </div>

@@ -18,7 +18,7 @@ class SantriController extends Controller
      */
     public function index()
     {
-      $santri = Santri::orderBy('id', 'desc')
+      $santri = Santri::orderBy('updated_at', 'desc')
                 ->where('status', 2)
                 ->paginate(5);
 
@@ -32,7 +32,7 @@ class SantriController extends Controller
                   ->count();
 
       $recentBerita = Berita::where('status', 2)
-                  ->orderBy('id', 'desc')
+                  ->orderBy('updated_at', 'desc')
                   ->take(4)
                   ->get();
       return view('content.santri.0index', compact(
@@ -113,22 +113,18 @@ class SantriController extends Controller
      * @param  \App\Santri  $santri
      * @return \Illuminate\Http\Response
      */
-    public function show($judul)
-    {
-      $santri = Santri::where('judul', $judul)
-                ->firstOrFail();
-
-      $santriNotFound = Santri::orderBy('id', 'desc')
+    public function show(Santri $santri){
+      $santriNotFound = Santri::orderBy('updated_at', 'desc')
                         ->where('status', 2)
                         ->take(3)
                         ->get();
 
       $postTerakhir = Berita::where('status', 2)
-                ->orderBy('id', 'desc')
+                ->orderBy('updated_at', 'desc')
                 ->take(1)
                 ->get();
       $galeriTerakhir = Galeri::where('status', 2)
-                ->orderBy('id', 'desc')
+                ->orderBy('updated_at', 'desc')
                 ->take(1)
                 ->get();
 
@@ -142,7 +138,7 @@ class SantriController extends Controller
                   ->count();
 
       $recentBerita = Berita::where('status', 2)
-                  ->orderBy('id', 'desc')
+                  ->orderBy('updated_at', 'desc')
                   ->take(4)
                   ->get();
 
@@ -173,7 +169,7 @@ class SantriController extends Controller
       if (Auth::check()) {
         $user_id = Auth::id();
         $santri = Santri::where('user_id', $user_id)
-                    ->orderBy('id', 'desc')
+                    ->orderBy('updated_at', 'desc')
                     ->paginate(9);
         $countBerita = Berita::where('status', 2)
                     ->count();
@@ -185,7 +181,7 @@ class SantriController extends Controller
                     ->count();
 
         $recentBerita = Berita::where('status', 2)
-                    ->orderBy('id', 'desc')
+                    ->orderBy('updated_at', 'desc')
                     ->take(4)
                     ->get();
 
@@ -202,11 +198,10 @@ class SantriController extends Controller
       }
     }
 
-    public function mineDetail($judul){
+    public function mineDetail(Santri $santri){
       if (Auth::check()) {
         $user_id = Auth::id();
-        $santri = Santri::where('judul', $judul)
-                  ->first();
+
         $user_id_santri = $santri->user_id;
 
         $countBerita = Berita::where('status', 2)
@@ -251,11 +246,9 @@ class SantriController extends Controller
       }
     }
 
-    public function allDetail($judul){
+    public function allDetail(Santri $santri){
       if (Auth::check()) {
         if (Auth::user()->hakAkses > 1) {
-          $santri = Santri::where('judul', $judul)
-                            ->firstOrFail();
 
           return view('content.santri.all.3detail', compact(
                                                             'santri',
@@ -268,20 +261,20 @@ class SantriController extends Controller
       }
     }
 
-    public function allDetailStoreSetuju(Request $request, $judul){
-      Santri::where('judul', $judul)
+    public function allDetailStoreSetuju(Request $request, Santri $santri){
+      Santri::where('id', $santri->id)
               ->update(
                 ['status' => 2]
               );
-      return redirect()->route('all.santri', $judul)->with('acc', 'Santri Berhasil Disetujui');
+      return redirect()->route('all.santri')->with('acc', 'Santri Berhasil Disetujui');
     }
 
-    public function allDetailStoreTidakSetuju(Request $request, $judul){
-      Santri::where('judul', $judul)
+    public function allDetailStoreTidakSetuju(Request $request, Santri $santri){
+      Santri::where('id', $santri->id)
               ->update(
                 ['status' => 3]
               );
-      return redirect()->route('all.santri', $judul)->with('tidakAcc', 'Santri Berhasil Tidak Disetujui');
+      return redirect()->route('all.santri')->with('tidakAcc', 'Santri Berhasil Tidak Disetujui');
     }
 
     /**

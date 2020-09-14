@@ -22,6 +22,7 @@ class User extends Authenticatable
         'fotoprofile',
         'role',
         'alamat',
+        'remember_token',
     ];
 
     /**

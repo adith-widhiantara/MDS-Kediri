@@ -17,15 +17,25 @@
               <h2 style="color: #2d2d2d;">
                 {{ $berita -> judul }}
               </h2>
-              <h2 class="statusText">
-                @if( $berita -> status == 1 )
-                  <span class="yellowText">belum dikonfirmasi</span>
-                @elseif( $berita -> status == 2 )
-                  <span class="greenText">Diterima</span>
-                @elseif( $berita -> status == 3 )
-                  <span class="redText">ditolak</span>
-                @endif
-              </h2>
+              <div class="row">
+                <div class="col-6">
+                  <h2 class="statusText">
+                    @if( $berita -> status == 1 )
+                      <span class="yellowText">belum dikonfirmasi</span>
+                    @elseif( $berita -> status == 2 )
+                      <span class="greenText">Diterima</span>
+                    @elseif( $berita -> status == 3 )
+                      <span class="redText">ditolak</span>
+                    @endif
+                  </h2>
+                </div>
+                <div class="col-6">
+                  <div class="float-right">
+                    <a href="{{ route('mine.detail.edit.berita', $berita -> id) }}" class="genric-btn green900-border radius">Ubah Berita</a>
+                  </div>
+                </div>
+              </div>
+
               <ul class="blog-info-link mt-3 mb-4">
                  <li><a href="#"><i class="fa fa-user"></i> {{ $berita -> user_nama }}</a></li>
                  <li><a href="#"><i class="fa fa-clock"></i> {{ $berita -> waktu }}</a></li>

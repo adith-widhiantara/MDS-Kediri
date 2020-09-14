@@ -26,10 +26,22 @@
                   <span class="redText">ditolak</span>
                 @endif
               </h2>
-              <ul class="blog-info-link mt-3 mb-4">
-                 <li><a href="#"><i class="fa fa-user"></i> {{ $galeri -> user_nama }}</a></li>
-                 <li><a href="#"><i class="fa fa-clock"></i> {{ $galeri -> waktu }}</a></li>
-              </ul>
+              <div class="row">
+                <div class="col-8">
+                  <ul class="blog-info-link mt-3 mb-4">
+                     <li><a href="#"><i class="fa fa-user"></i> {{ $galeri -> user_nama }}</a></li>
+                     <li><a href="#"><i class="fa fa-clock"></i> {{ $galeri -> waktu }}</a></li>
+                  </ul>
+                </div>
+                <div class="col-4">
+                  <div class="float-right">
+                    <a href="{{ route('mine.detail.edit.galeri', $galeri -> id) }}" class="genric-btn green900-border radius">Ubah Galeri</a>
+                  </div>
+                </div>
+              </div>
+              @if( $galeri -> linkVideo )
+                @include('content.galeri.detail.2modalYoutube')
+              @endif
               <p class="excert">
                  {{ $galeri -> caption }}
               </p>

@@ -6,10 +6,23 @@
       <h2 style="color: #2d2d2d;">
         {{ $berita -> judul }}
       </h2>
-      <ul class="blog-info-link mt-3 mb-4">
-         <li><a href="#"><i class="fa fa-user"></i> {{ $berita -> user_nama }}</a></li>
-         <li><a href="#"><i class="fa fa-clock"></i> {{ $berita -> waktu }}</a></li>
-      </ul>
+      <div class="row">
+        <div class="col-8">
+          <ul class="blog-info-link mt-3 mb-4">
+             <li><a href="#"><i class="fa fa-user"></i> {{ $berita -> user_nama }}</a></li>
+             <li><a href="#"><i class="fa fa-clock"></i> {{ $berita -> waktu }}</a></li>
+          </ul>
+        </div>
+        @if( Auth::check() )
+          @if( $berita -> user_id == Auth::id() )
+            <div class="col-4">
+              <div class="float-right">
+                <a href="{{ route('mine.detail.edit.berita', $berita -> id) }}" class="genric-btn green900-border radius">Ubah Berita</a>
+              </div>
+            </div>
+          @endif
+        @endif
+      </div>
       <p class="excert">
          {{ $berita -> caption }}
       </p>

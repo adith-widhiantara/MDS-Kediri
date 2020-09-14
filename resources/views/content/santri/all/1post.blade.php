@@ -18,7 +18,7 @@
             <span class="redText">Ditolak</span>
           @endif
         </p>
-        <a href="{{ route('all.detail.santri', $san->judul) }}" class="genric-btn kunjungiBtn">
+        <a href="{{ route('all.detail.santri', $san->id) }}" class="genric-btn kunjungiBtn">
           Kunjungi Berita
         </a>
       </div>

@@ -35,7 +35,7 @@
             <a class="genric-btn setuju" onclick="event.preventDefault(); document.getElementById('layakDitayangkan').submit();">
               Layak ditayangkan
             </a>
-            <form id="layakDitayangkan" action="{{ route('allNews.store.detail.berita',$berita -> judul) }}" method="POST" style="display: none;">
+            <form id="layakDitayangkan" action="{{ route('allNews.store.detail.berita',$berita -> id) }}" method="POST" style="display: none;">
               @csrf
             </form>
           </div>
@@ -43,7 +43,7 @@
             <a class="genric-btn tidakSetuju" onclick="event.preventDefault(); document.getElementById('tidakLayakDitayangkan').submit();">
               tidak Layak ditayangkan
             </a>
-            <form id="tidakLayakDitayangkan" action="{{ route('allNews.store.tidakSetuju.detail.berita',$berita -> judul) }}" method="POST" style="display: none;">
+            <form id="tidakLayakDitayangkan" action="{{ route('allNews.store.tidakSetuju.detail.berita',$berita -> id) }}" method="POST" style="display: none;">
               @csrf
             </form>
           </div>

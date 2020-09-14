@@ -26,11 +26,13 @@ Route::prefix('berita')->group(function () {
   Route::post('create', 'BeritaController@store')->name('create.send.berita');
   Route::get('mine', 'BeritaController@mine')->name('mine.berita');
   Route::get('allnews', 'BeritaController@allNews')->name('allNews.berita');
-  Route::get('allnews/{allnews}', 'BeritaController@allNewsDetail')->name('allNews.detail.berita');
-  Route::post('allnews/{allnews}/setuju', 'BeritaController@allNewsDetailStoreSetuju')->name('allNews.store.detail.berita');
-  Route::post('allnews/{allnews}/tidak', 'BeritaController@allNewsDetailStoreTidakSetuju')->name('allNews.store.tidakSetuju.detail.berita');
+  Route::get('allnews/{berita}', 'BeritaController@allNewsDetail')->name('allNews.detail.berita');
+  Route::post('allnews/{berita}/setuju', 'BeritaController@allNewsDetailStoreSetuju')->name('allNews.store.detail.berita');
+  Route::post('allnews/{berita}/tidak', 'BeritaController@allNewsDetailStoreTidakSetuju')->name('allNews.store.tidakSetuju.detail.berita');
   Route::get('{berita}', 'BeritaController@show')->name('detail.berita');
   Route::get('mine/{berita}', 'BeritaController@mineDetail')->name('mine.detail.berita');
+  Route::get('mine/{berita}/edit', 'BeritaController@edit')->name('mine.detail.edit.berita');
+  Route::post('mine/{berita}/update', 'BeritaController@update')->name('mine.detail.edit.send.berita');
 });
 // end berita
 
@@ -41,9 +43,9 @@ Route::prefix('testimoni')->group(function () {
   Route::post('create', 'SantriController@store')->name('create.send.santri');
   Route::get('mine', 'SantriController@mine')->name('mine.santri');
   Route::get('all', 'SantriController@all')->name('all.santri');
-  Route::get('all/{all}', 'SantriController@allDetail')->name('all.detail.santri');
-  Route::post('all/{all}/setuju', 'SantriController@allDetailStoreSetuju')->name('all.store.detail.santri');
-  Route::post('all/{all}/tidak', 'SantriController@allDetailStoreTidakSetuju')->name('all.store.tidakSetuju.detail.santri');
+  Route::get('all/{santri}', 'SantriController@allDetail')->name('all.detail.santri');
+  Route::post('all/{santri}/setuju', 'SantriController@allDetailStoreSetuju')->name('all.store.detail.santri');
+  Route::post('all/{santri}/tidak', 'SantriController@allDetailStoreTidakSetuju')->name('all.store.tidakSetuju.detail.santri');
   Route::get('{santri}', 'SantriController@show')->name('detail.santri');
   Route::get('mine/{santri}', 'SantriController@mineDetail')->name('mine.detail.santri');
 });
@@ -56,11 +58,13 @@ Route::prefix('galeri')->group(function () {
   Route::post('create', 'GaleriController@store')->name('create.send.galeri');
   Route::get('mine', 'GaleriController@mine')->name('mine.galeri');
   Route::get('all', 'GaleriController@all')->name('allNews.galeri');
-  Route::get('all/{all}', 'GaleriController@allDetail')->name('allNews.detail.galeri');
-  Route::post('all/{all}/setuju', 'GaleriController@allDetailStoreSetuju')->name('all.store.detail.galeri');
-  Route::post('all/{all}/tidak', 'GaleriController@allDetailStoreTidakSetuju')->name('all.store.tidakSetuju.detail.galeri');
+  Route::get('all/{galeri}', 'GaleriController@allDetail')->name('allNews.detail.galeri');
+  Route::post('all/{galeri}/setuju', 'GaleriController@allDetailStoreSetuju')->name('all.store.detail.galeri');
+  Route::post('all/{galeri}/tidak', 'GaleriController@allDetailStoreTidakSetuju')->name('all.store.tidakSetuju.detail.galeri');
   Route::get('{galeri}', 'GaleriController@show')->name('detail.galeri');
   Route::get('mine/{galeri}', 'GaleriController@mineDetail')->name('mine.detail.galeri');
+  Route::get('mine/{galeri}/edit', 'GaleriController@edit')->name('mine.detail.edit.galeri');
+  Route::post('mine/{galeri}/update', 'GaleriController@update')->name('mine.detail.edit.send.galeri');
 });
 // end galery
 

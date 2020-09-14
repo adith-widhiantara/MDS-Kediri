@@ -22,9 +22,9 @@
           </p>
           <a href="
           @if( $san -> status == 1 || $san -> status == 3 )
-            {{ route('mine.detail.santri', $san->judul) }}
+            {{ route('mine.detail.santri', $san->id) }}
           @elseif( $san -> status == 2 )
-            {{ route('detail.santri', $san->judul) }}
+            {{ route('detail.santri', $san->id) }}
           @endif
           " class="genric-btn kunjungiBtn">
             Kunjungi Testimoni

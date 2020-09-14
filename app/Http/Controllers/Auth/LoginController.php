@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\User;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -37,15 +41,30 @@ class LoginController extends Controller
         ]);
 
         $fieldType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-        if(auth()->attempt(array($fieldType => $input['username'], 'password' => $input['password'], 'role' => 2))){
+        $remember_token = ($request->has('remember_token')) ? true : false;
+
+        if(Auth::attempt([$fieldType => $input['username'], 'password' => $input['password'], 'role' => 2], $remember_token)){
           return redirect()->route('landing')
               ->with('success', 'a');
-        }elseif (array($fieldType => $input['username'], 'password' => $input['password'], 'role' => 1)) {
-          return redirect()->route('login')
-              ->with('role','a');
         }else{
-          return redirect()->route('login')
-              ->with('error','a');
+          $username = $request->username;
+          $pass = $input['password'];
+
+          $checkingUsername = User::where('username', $username)
+                                  ->first();
+          if ( $checkingUsername != null ) {
+            if ( $checkingUsername -> role == 1 ) {
+              return redirect()->route('login')
+                                ->with('belumAcc','A');
+            }
+            if ( $checkingUsername -> role == 2 || $checkingUsername -> password != $pass ) {
+              return redirect()->route('login')
+                                ->with('passSalah','A');
+            }
+          } else {
+            return redirect()->route('login')
+                              ->with('error','A');
+          }
         }
     }
 }

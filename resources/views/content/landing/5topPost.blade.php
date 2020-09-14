@@ -14,13 +14,13 @@
           <div class="single-job-items mb-30">
             <div class="job-items">
               <div class="company-img">
-                <a href="{{ route('detail.santri', $san -> judul) }}">
+                <a href="{{ route('detail.santri', $san -> id) }}">
                   <img src="{{ asset('img/santri/'.$san -> sampul) }}" alt="">
                 </a>
               </div>
               <div class="job-tittle">
                 <span>{{ $san -> user_nama }}</span>
-                <a href="{{ route('detail.santri', $san -> judul) }}">
+                <a href="{{ route('detail.santri', $san -> id) }}">
                   <h4>{{ $san -> judul }}</h4>
                 </a>
                 <p class="caption3">{{ $san -> caption }}</p>

@@ -17,6 +17,11 @@
               galeri saya
             </h1>
           </div>
+          @if (session('successGaleri'))
+            <div class="alert alert-success" role="alert">
+              {{ session('successGaleri') }}
+            </div>
+          @endif
           @include('content.galeri.mine.1post')
           @include('content.galeri.mine.2pagination')
         </div>

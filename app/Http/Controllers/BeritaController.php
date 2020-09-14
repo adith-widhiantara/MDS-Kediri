@@ -17,7 +17,7 @@ class BeritaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-      $berita = Berita::orderBy('id', 'desc')
+      $berita = Berita::orderBy('updated_at', 'desc')
                   ->where('status', 2)
                   ->paginate(5);
 
@@ -31,7 +31,7 @@ class BeritaController extends Controller
                   ->count();
 
       $recentSantri = Santri::where('status', 2)
-                  ->orderBy('id', 'desc')
+                  ->orderBy('updated_at', 'desc')
                   ->take(4)
                   ->get();
       return view('content.berita.0index', compact(
@@ -60,11 +60,9 @@ class BeritaController extends Controller
       }
     }
 
-    public function allNewsDetail($judul){
+    public function allNewsDetail(Berita $berita){
       if (Auth::check()) {
         if (Auth::user()->hakAkses > 1) {
-          $berita = Berita::where('judul', $judul)
-                            ->firstOrFail();
 
           return view('content.berita.allNews.3detail', compact(
                                                                 'berita',
@@ -77,20 +75,20 @@ class BeritaController extends Controller
       }
     }
 
-    public function allNewsDetailStoreSetuju(Request $request, $judul){
-      Berita::where('judul', $judul)
+    public function allNewsDetailStoreSetuju(Request $request, Berita $berita){
+      Berita::where('id', $berita->id)
               ->update(
                 ['status' => 2]
               );
-      return redirect()->route('allNews.berita', $judul)->with('acc', 'Berita Berhasil Disetujui');
+      return redirect()->route('allNews.berita')->with('acc', 'Berita Berhasil Disetujui');
     }
 
-    public function allNewsDetailStoreTidakSetuju(Request $request, $judul){
-      Berita::where('judul', $judul)
+    public function allNewsDetailStoreTidakSetuju(Request $request, Berita $berita){
+      Berita::where('id', $berita->id)
               ->update(
                 ['status' => 3]
               );
-      return redirect()->route('allNews.berita', $judul)->with('tidakAcc', 'Berita Berhasil Tidak Disetujui');
+      return redirect()->route('allNews.berita')->with('tidakAcc', 'Berita Berhasil Tidak Disetujui');
     }
 
     /**
@@ -162,22 +160,18 @@ class BeritaController extends Controller
      * @param  \App\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function show($berita)
-    {
-      $berita = Berita::where('judul', $berita)
-                ->firstOrFail();
-
-      $beritaNotFound = Berita::orderBy('id', 'desc')
+    public function show(Berita $berita){
+      $beritaNotFound = Berita::orderBy('updated_at', 'desc')
                         ->where('status', 2)
                         ->take(3)
                         ->get();
 
       $postTerakhir = Santri::where('status', 2)
-                ->orderBy('id', 'desc')
+                ->orderBy('updated_at', 'desc')
                 ->take(1)
                 ->get();
       $galeriTerakhir = Galeri::where('status', 2)
-                ->orderBy('id', 'desc')
+                ->orderBy('updated_at', 'desc')
                 ->take(1)
                 ->get();
 
@@ -191,7 +185,7 @@ class BeritaController extends Controller
                   ->count();
 
       $recentSantri = Santri::where('status', 2)
-                  ->orderBy('id', 'desc')
+                  ->orderBy('updated_at', 'desc')
                   ->take(4)
                   ->get();
 
@@ -216,14 +210,13 @@ class BeritaController extends Controller
                                                             'recentSantri',
                                                           ));
       }
-
     }
 
     public function mine(){
       if (Auth::check()) {
         $user_id = Auth::id();
         $berita = Berita::where('user_id', $user_id)
-                    ->orderBy('id', 'desc')
+                    ->orderBy('updated_at', 'desc')
                     ->paginate(9);
 
         $countBerita = Berita::where('status', 2)
@@ -236,7 +229,7 @@ class BeritaController extends Controller
                     ->count();
 
         $recentSantri = Santri::where('status', 2)
-                    ->orderBy('id', 'desc')
+                    ->orderBy('updated_at', 'desc')
                     ->take(4)
                     ->get();
 
@@ -253,11 +246,10 @@ class BeritaController extends Controller
       }
     }
 
-    public function mineDetail($judul){
+    public function mineDetail(Berita $berita){
       if (Auth::check()) {
         $user_id = Auth::id();
-        $berita = Berita::where('judul', $judul)
-                  ->first();
+
         $user_id_berita = $berita->user_id;
 
         $countBerita = Berita::where('status', 2)
@@ -292,9 +284,36 @@ class BeritaController extends Controller
      * @param  \App\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function edit(Berita $berita)
-    {
-        //
+    public function edit(Berita $berita){
+      $id = $berita -> user_id;
+      $user_id = Auth::id();
+
+      if ( Auth::check() ) {
+        if ( $id == $user_id ) {
+
+          $countBerita = Berita::where('status', 2)
+                      ->count();
+          $countGaleri = Galeri::where('status', 2)
+                      ->count();
+          $countSantri = Santri::where('status', 2)
+                      ->count();
+          $countVideo = Video::where('status', 2)
+                      ->count();
+
+          return view('content.berita.mine.edit.0index',compact(
+                                                                'berita',
+                                                                'countBerita',
+                                                                'countGaleri',
+                                                                'countSantri',
+                                                                'countVideo',
+                                                                ));
+
+        } else {
+          return redirect()->route('mine.berita');
+        }
+      } else {
+        return redirect()->route('login');
+      }
     }
 
     /**
@@ -304,9 +323,26 @@ class BeritaController extends Controller
      * @param  \App\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Berita $berita)
-    {
-        //
+    public function update(Request $request, Berita $berita){
+      $file = $request->file('sampul');
+      if (is_null($file)) {
+        $nama_file = $berita -> sampul;
+      } else {
+        $tujuan_upload = 'img/news';
+        $nama_file = time()."_".$file->getClientOriginalName();
+        $file->move($tujuan_upload,$nama_file);
+      }
+
+      Berita::where('id', $berita->id)
+          ->update(
+            [
+              'judul' => $request -> judul,
+              'sampul' => $nama_file,
+              'caption' => $request -> caption,
+            ]
+          );
+
+      return redirect()->route('mine.berita')->with('successBerita', 'Berita Berhasil Diubah');
     }
 
     /**

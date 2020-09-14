@@ -23,7 +23,7 @@
                     <div class="trend-top-cap">
                         <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">{{ $ber -> user_nama }}</span>
                         <h2>
-                          <a href="{{ route('detail.berita',$ber -> judul) }}" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">{{ $ber -> judul }}</a>
+                          <a href="{{ route('detail.berita',$ber -> id) }}" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">{{ $ber -> judul }}</a>
                         </h2>
                     </div>
                   </div>
@@ -41,7 +41,7 @@
                     <div class="trend-top-cap">
                       <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">{{ $ber -> user_nama }}</span>
                       <h2>
-                        <a href="{{ route('detail.berita',$ber -> judul) }}"  data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">{{ $ber -> judul }}</a>
+                        <a href="{{ route('detail.berita',$ber -> id) }}"  data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">{{ $ber -> judul }}</a>
                       </h2>
                     </div>
                   </div>
@@ -70,7 +70,7 @@
                   <div class="banner-cap2 banner-cap3">
                     <p>{{ $ber -> user_nama }}</p>
                     <h3>
-                      <a href="{{ route('detail.berita',$ber -> judul) }}">{{ $ber -> judul }}</a>
+                      <a href="{{ route('detail.berita',$ber -> id) }}">{{ $ber -> judul }}</a>
                     </h3>
                     <p class="normal" id="caption1">{{ $ber -> caption }}</p>
                   </div>
@@ -85,7 +85,7 @@
                   <div class="banner-cap2 banner-cap3">
                     <p>{{ $ber -> user_nama }}</p>
                     <h3>
-                      <a href="{{ route('detail.berita',$ber -> judul) }}">{{ $ber -> judul }}</a>
+                      <a href="{{ route('detail.berita',$ber -> id) }}">{{ $ber -> judul }}</a>
                     </h3>
                     <p class="normal" id="caption2">{{ $ber -> caption }}</p>
                   </div>
@@ -114,7 +114,7 @@
               <div class="banner-cap2">
                 <p>{{ $ber -> user_nama }}</p>
                 <h3>
-                  <a href="{{ route('detail.berita',$ber -> judul) }}">{{ $ber -> judul }}</a>
+                  <a href="{{ route('detail.berita',$ber -> id) }}">{{ $ber -> judul }}</a>
                 </h3>
               </div>
             </div>
@@ -131,7 +131,7 @@
               <div class="banner-cap2">
                 <p>{{ $ber -> user_nama }}</p>
                 <h3>
-                  <a href="{{ route('detail.berita',$ber -> judul) }}">{{ $ber -> judul }}</a>
+                  <a href="{{ route('detail.berita',$ber -> id) }}">{{ $ber -> judul }}</a>
                 </h3>
               </div>
             </div>

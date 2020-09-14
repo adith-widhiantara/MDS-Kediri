@@ -18,7 +18,7 @@ class VideoController extends Controller
      */
     public function index()
     {
-      $video = Video::orderBy('id', 'desc')
+      $video = Video::orderBy('updated_at', 'desc')
                     ->where('status', 2)
                     ->paginate(12);
 
@@ -104,17 +104,17 @@ class VideoController extends Controller
       if (Auth::check()) {
         $user_id = Auth::id();
         $video = Video::where('user_id', $user_id)
-                    ->orderBy('id', 'desc')
+                    ->orderBy('updated_at', 'desc')
                     ->paginate(9);
 
         $countBerita = Berita::where('status', 2)
-        ->count();
+                      ->count();
         $countGaleri = Galeri::where('status', 2)
-        ->count();
+                      ->count();
         $countSantri = Santri::where('status', 2)
-        ->count();
+                      ->count();
         $countVideo = Video::where('status', 2)
-        ->count();
+                      ->count();
 
         return view('content.video.mine.0index',compact(
                                                         'video',

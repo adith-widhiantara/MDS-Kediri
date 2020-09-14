@@ -18,7 +18,7 @@
               </div>
               <div class="banner-cap">
                 <p>{{ $gal -> user_nama }}</p>
-                <h3><a href="{{ route('detail.galeri',$gal -> judul) }}">{{$gal -> judul}}</a></h3>
+                <h3><a href="{{ route('detail.galeri',$gal -> id) }}">{{$gal -> judul}}</a></h3>
               </div>
             </div>
           </div>

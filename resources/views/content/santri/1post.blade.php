@@ -8,7 +8,7 @@
       </a>
     </div>
     <div class="blog_details">
-      <a class="d-inline-block" href="{{ route('detail.santri', $san -> judul) }}">
+      <a class="d-inline-block" href="{{ route('detail.santri', $san -> id) }}">
         <h2 class="blog-head">
           {{ $san -> judul }}
         </h2>

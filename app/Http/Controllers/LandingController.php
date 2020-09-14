@@ -20,31 +20,31 @@ class LandingController extends Controller
      */
     public function index()
     {
-      $galeri = Galeri::orderBy('id', 'desc')
+      $galeri = Galeri::orderBy('updated_at', 'desc')
                     ->where('status', 2)
                     ->take(5)
                     ->get();
 
-      $berita0 = Berita::orderBy('id', 'desc')
+      $berita0 = Berita::orderBy('updated_at', 'desc')
                     ->where('status', 2)
                     ->take(1)
                     ->get();
-      $berita1 = Berita::orderBy('id', 'desc')
+      $berita1 = Berita::orderBy('updated_at', 'desc')
                     ->where('status', 2)
                     ->take(1)
                     ->skip(1)
                     ->get();
-      $berita2 = Berita::orderBy('id', 'desc')
+      $berita2 = Berita::orderBy('updated_at', 'desc')
                     ->where('status', 2)
                     ->take(1)
                     ->skip(2)
                     ->get();
-      $berita3 = Berita::orderBy('id', 'desc')
+      $berita3 = Berita::orderBy('updated_at', 'desc')
                     ->where('status', 2)
                     ->take(1)
                     ->skip(3)
                     ->get();
-      $berita4 = Berita::orderBy('id', 'desc')
+      $berita4 = Berita::orderBy('updated_at', 'desc')
                     ->where('status', 2)
                     ->take(1)
                     ->skip(4)
@@ -53,16 +53,16 @@ class LandingController extends Controller
       $captionVideo = Information::where('id', 1)
                     ->get();
 
-      $video0 = Video::orderBy('id', 'desc')
+      $video0 = Video::orderBy('updated_at', 'desc')
                     ->where('status', 2)
                     ->take(1)
                     ->get();
-      $video1 = Video::orderBy('id', 'desc')
+      $video1 = Video::orderBy('updated_at', 'desc')
                     ->where('status', 2)
                     ->take(1)
                     ->skip(1)
                     ->get();
-      $video2 = Video::orderBy('id', 'desc')
+      $video2 = Video::orderBy('updated_at', 'desc')
                     ->where('status', 2)
                     ->take(1)
                     ->skip(2)
@@ -71,7 +71,7 @@ class LandingController extends Controller
       $iklanTopPost = Information::where('id', 2)
                     ->get();
 
-      $santri = Santri::orderBy('id', 'desc')
+      $santri = Santri::orderBy('updated_at', 'desc')
                     ->where('status', 2)
                     ->take(3)
                     ->get();

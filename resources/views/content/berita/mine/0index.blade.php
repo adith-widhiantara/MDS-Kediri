@@ -17,6 +17,11 @@
               berita saya
             </h1>
           </div>
+          @if (session('successBerita'))
+            <div class="alert alert-success" role="alert">
+              {{ session('successBerita') }}
+            </div>
+          @endif
           @include('content.berita.mine.1post')
           @include('content.berita.mine.2pagination')
         </div>

@@ -10,7 +10,7 @@
           <p class="card-text">
             {{ $gal -> caption }}
           </p>
-          <a href="{{ route('detail.galeri', $gal->judul) }}" class="genric-btn kunjungiBtn">
+          <a href="{{ route('detail.galeri', $gal->id) }}" class="genric-btn kunjungiBtn">
             Kunjungi Foto
           </a>
         </div>
